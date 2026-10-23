@@ -1,0 +1,7210 @@
+   /* GOOGLE FONT
+========================================= */ 
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
+
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background:#000;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+
+    width: 100%;
+    height: 70px;
+
+    padding: 0 10%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 1000;
+
+    transition:
+        translate 0.35s ease,
+        opacity 0.25s ease;
+}
+
+
+.navbar.navbar-hidden {
+    translate: 0 -100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+
+.logo img {
+
+    width: 150px;
+    height: auto;
+
+    display: block;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+.nav-links {
+
+    display: flex;
+    align-items: center;
+
+    gap: 34px;
+}
+
+
+.nav-links a {
+
+    text-decoration: none;
+
+    color: #d8d8d8;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    transition:
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+.nav-links a:hover {
+
+    color: white;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    width: 100%;
+
+    height:
+        calc(100vh - 70px);
+
+    min-height: 650px;
+
+    padding:
+        0
+        4.2%
+        40px;
+}
+
+
+/* =========================================
+   MAIN BOARD
+========================================= */
+
+.board {
+
+    width: 100%;
+
+    height: 85%;
+
+    min-height: 450px;
+
+    position: relative;
+
+    border-radius: 36px;
+
+    overflow: visible;
+
+    background-color:#054729 ;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.55'/%3E%3C/svg%3E");
+
+    background-image:
+
+        linear-gradient(
+            rgba(173, 198, 226, 0.34) 2px,
+            transparent 2px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(173, 198, 226, 0.34) 2px,
+            transparent 2px
+        );
+
+    background-size:
+        30px
+        30px;
+
+    box-shadow:
+
+        0 25px 55px
+        rgba(0, 0, 0, 0.42);
+}
+
+
+.board::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    pointer-events: none;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 255, 255, 0.05),
+            transparent 55%
+        );
+
+    z-index: 1;
+}
+
+
+/* =========================================
+   COMMON DRAGGABLE OBJECT
+========================================= */
+
+.draggable-object {
+
+    position: absolute;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    cursor: grab;
+
+    touch-action: none;
+
+    z-index: 10;
+
+    transform:
+        translate(
+            var(--drag-x, 0px),
+            var(--drag-y, 0px)
+        );
+
+    filter:
+
+        drop-shadow(
+            10px 16px 14px
+            rgba(0, 0, 0, 0.40)
+        );
+}
+
+
+.draggable-object.dragging {
+
+    cursor: grabbing;
+
+    z-index: 500;
+}
+
+
+/* =========================================
+   CAMERA
+========================================= */
+
+.camera {
+
+    width: 380px;
+
+    top: -80px;
+
+    left: -80px;
+}
+
+
+/* =========================================
+   CONTENT CONNECT STICKER
+========================================= */
+
+.content-sticker {
+
+    width: 200px;
+
+    top: 20px;
+
+    right: 90px;
+}
+
+
+/* =========================================
+   SEARCH ICON
+========================================= */
+
+.search-icon {
+
+    width: 190px;
+
+    left: 80px;
+
+    bottom: 5px;
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.hero-text {
+
+    position: absolute;
+
+    top: 190px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    z-index: 30;
+
+    color: #f1f0eb;
+
+    font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+
+    font-size: 68px;
+
+    font-weight: 800;
+
+    line-height: 0.82;
+
+    letter-spacing: -3px;
+
+    text-shadow:
+        0 5px 0 rgba(0, 0, 0, 0.12),
+        0 12px 18px rgba(0, 0, 0, 0.70);
+
+    user-select: none;
+
+    pointer-events: none;
+}
+
+
+.hero-line {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    text-align: center;
+
+    white-space: nowrap;
+}
+
+
+.hero-text .letter {
+
+    display: inline-block;
+
+    opacity: 0;
+
+    transform: translateY(15px);
+
+    animation:
+        letterAppear
+        0.35s
+        ease
+        forwards;
+}
+
+/* =========================================
+   START PROJECT
+========================================= */
+
+.start-project {
+
+    position: absolute;
+
+    width: 250px;
+
+    top: 205px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 50;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            10px 16px 14px
+            rgba(0, 0, 0, 0.40)
+        );
+}
+.start-project-link {
+    position: absolute;
+    width: 250px;
+    top: 205px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 60;
+    display: block;
+}
+
+.start-project-link .start-project {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 250px;
+    transform: none;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   BOOK STICKER
+========================================= */
+
+.book-sticker {
+
+    width: 400px;
+
+    right: -115px;
+
+    bottom: -175px;
+
+    z-index: 50;
+}
+
+
+/* =========================================
+   CLOUD COMMON
+========================================= */
+
+.cloud {
+
+    position: absolute;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+
+    cursor: grab;
+
+    touch-action: none;
+
+    z-index: 20;
+
+    width: 260px;
+
+    filter:
+        drop-shadow(
+            8px 12px 10px
+            rgba(0, 0, 0, 0.50)
+        );
+}
+
+
+.cloud-left {
+
+    width: 250px;
+
+    left: -100px;
+
+    top: 105px;
+
+    animation:
+        cloudLeftFloat
+        5s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.cloud-right {
+
+    width: 400px;
+
+    right: -175px;
+
+    top: -110px;
+
+    animation:
+        cloudRightFloat
+        6s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+.cloud-middle {
+
+    width: 150px;
+
+    left: 170px;
+
+    bottom: 40px;
+
+    animation:
+        cloudMiddleFloat
+        5.5s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+
+/* =========================================
+   CLOUD ANIMATIONS
+========================================= */
+
+@keyframes cloudLeftFloat {
+
+    from {
+        transform:
+            translate(
+                var(--cloud-x, 0px),
+                var(--cloud-y, 0px)
+            );
+    }
+
+    to {
+        transform:
+            translate(
+                calc(var(--cloud-x, 0px) + 30px),
+                calc(var(--cloud-y, 0px) - 5px)
+            );
+    }
+}
+
+
+@keyframes cloudRightFloat {
+
+    from {
+        transform:
+            translate(
+                var(--cloud-x, 0px),
+                var(--cloud-y, 0px)
+            );
+    }
+
+    to {
+        transform:
+            translate(
+                calc(var(--cloud-x, 0px) - 28px),
+                calc(var(--cloud-y, 0px) + 8px)
+            );
+    }
+}
+
+
+@keyframes cloudMiddleFloat {
+
+    from {
+        transform:
+            translate(
+                var(--cloud-x, 0px),
+                var(--cloud-y, 0px)
+            );
+    }
+
+    to {
+        transform:
+            translate(
+                calc(var(--cloud-x, 0px) + 22px),
+                calc(var(--cloud-y, 0px) - 8px)
+            );
+    }
+}
+
+
+.cloud.dragging {
+
+    animation: none;
+
+    cursor: grabbing;
+
+    z-index: 400;
+
+    transform:
+        translate(
+            var(--cloud-x, 0px),
+            var(--cloud-y, 0px)
+        );
+}
+
+
+/* =========================================
+   NAVBAR ANIMATION
+========================================= */
+
+.navbar {
+
+    animation:
+        navbarDrop
+        1.2s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+
+@keyframes navbarDrop {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(-100px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================
+   LETTER ANIMATION
+========================================= */
+
+@keyframes letterAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =================================================
+   SECOND SECTION — TV
+================================================= */
+
+.tv-section {
+
+    height: 165vh;
+
+    min-height: 900px;
+
+    background: #000;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+.tv-stage {
+
+    position: sticky;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+   
+}
+
+
+
+
+/* =================================================
+   THIRD SECTION — MESSAGE
+================================================= */
+
+.message-section {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 1200px;
+
+    padding:
+        289px
+        7%
+        100px;
+
+    background: #f3f1ec;
+
+    overflow: hidden;
+
+    will-change: background-color;
+}
+
+
+.message-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1450px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   BIG MESSAGE
+========================================= */
+
+.big-message {
+    margin: 0;
+
+    color: #050505;
+
+    font-family:
+        Impact,
+        "Arial Black",
+        sans-serif;
+
+    font-size:
+        clamp(
+            120px,
+            0.3vw,
+            30px
+        );
+
+    font-weight: 1200;
+
+    line-height: 0.92;
+
+    letter-spacing: -0.79px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+
+    /* will-change: color; */
+}
+
+/* =========================================
+   IMPORTANT:
+   TEXT LINES
+========================================= */
+
+.big-message .message-line {
+
+    display: block;
+
+    opacity: 0;
+
+    width: max-content;
+
+    will-change:
+        opacity,
+        transform,
+        clip-path;
+}
+
+
+/* =========================================
+   WORD STICKERS
+========================================= */
+
+.word-sticker {
+
+    position: absolute;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-weight: 900;
+
+    z-index: 5;
+
+    user-select: none;
+
+    opacity: 0;
+
+    will-change:
+        transform,
+        opacity;
+}
+
+
+/* =========================================
+   THINK
+========================================= */
+
+.think {
+
+    top: -20px;
+
+    left: 42%;
+
+    padding:
+        12px
+        22px;
+
+    background: #f4f04c;
+
+    color: #151515;
+
+    font-size: 19px;
+
+    border-radius: 11px;
+
+    --final-rotation: -6deg;
+}
+
+
+/* =========================================
+   MAKE
+========================================= */
+
+.make {
+
+    top: 100px;
+
+    right: 260px;
+
+    padding:
+        14px
+        24px;
+
+    background: #43db63;
+
+    color: #073c18;
+
+    font-size: 19px;
+
+    border-radius: 11px;
+
+    --final-rotation: 12deg;
+}
+
+
+/* =========================================
+   GROW
+========================================= */
+
+.grow {
+
+    bottom: -25px;
+
+    left: 25%;
+
+    padding:
+        12px
+        24px;
+
+    background: #72d2d1;
+
+    color: #174b63;
+
+    font-size: 19px;
+
+    border-radius: 11px;
+
+    --final-rotation: -10deg;
+}
+/* =================================================
+   FOURTH SECTION — CREATIVE TOOLS
+================================================= */
+
+.tools-section {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        130px
+        8%
+        190px;
+
+    background: #050505;
+
+    overflow: hidden;
+}
+
+
+.tools-wrapper {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.tools-title {
+
+    margin: 0 0 80px;
+
+    text-align: center;
+
+    color: #f5f5f5;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size:
+        clamp(
+            48px,
+            5vw,
+            82px
+        );
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+}
+
+/* =========================================
+   CARD ROW
+========================================= */
+
+.tools-cards {
+
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 0;
+
+    padding:
+        15px
+        0
+        120px;
+}
+
+
+/* =========================================
+   CARD COMMON
+========================================= */
+
+.tool-card {
+
+    position: relative;
+
+    width: 240px;
+
+    height: 370px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+
+    transform-origin: center bottom;
+
+    will-change: transform;
+
+    cursor: pointer;
+
+    box-shadow:
+        0
+        25px
+        40px
+        rgba(0, 0, 0, 0.38);
+
+    transition:
+        filter 0.25s ease;
+}
+
+
+/* =========================================
+   CARD IMAGE / WHITE AREA
+========================================= */
+
+.tool-card-image {
+
+    position: absolute;
+
+    top: 7px;
+    left: 7px;
+    right: 7px;
+
+    height: 72%;
+
+    background: #f4f4f4;
+
+    border-radius:
+        18px
+        18px
+        21px
+        21px;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   COLOURED LOWER PART
+========================================= */
+
+.tool-card-bottom {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 34%;
+
+    padding:
+        30px
+        24px
+        22px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    color: white;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    line-height: 0.92;
+
+    letter-spacing: -1px;
+}
+
+.tool-card-image {
+    position: absolute;
+
+    top: 7px;
+    left: 7px;
+    right: 7px;
+
+    height: 72%;
+
+    display: block;
+    overflow: hidden;
+
+    border-radius: 18px 18px 21px 21px;
+
+    z-index: 2;
+}
+
+.tool-card-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+}
+/* FORCE IMAGE TO COVER COMPLETE WHITE AREA */
+
+.tool-card-image {
+    position: absolute !important;
+    top: 7px !important;
+    left: 7px !important;
+    right: 7px !important;
+    bottom: auto !important;
+
+    width: calc(100% - 14px) !important;
+    height: 85% !important;
+
+    overflow: hidden !important;
+    display: block !important;
+
+    background: transparent !important;
+}
+
+.tool-card-image img {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    display: block !important;
+}
+
+/* =========================================
+   CARD COLORS + ORIGINAL POSITIONS
+========================================= */
+
+.tool-card-blue {
+    background: #203dad;
+
+    transform:
+       rotate(2deg)
+        translateY(5px);
+
+    z-index: 3;
+}
+
+
+.tool-card-green {
+
+    background: #237f4c;
+
+   transform:
+        rotate(-6deg)
+        translateY(8px);
+
+    z-index: 4;
+}
+
+
+.tool-card-yellow {
+
+    background: #efc929;
+
+    transform:
+        rotate(6deg)
+        translateY(15px);
+
+    z-index: 3;
+}
+
+
+.tool-card-blue-light {
+
+    background: #3bb3e4;
+
+    transform:
+        rotate(-6deg)
+        translateY(8px);
+
+    z-index: 4;
+}
+
+
+/* =========================================
+   LOWER COLOURS
+========================================= */
+
+.tool-card-blue .tool-card-bottom {
+    background: #203dad;
+}
+
+.tool-card-green .tool-card-bottom {
+    background: #237f4c;
+}
+
+.tool-card-yellow .tool-card-bottom {
+    background: #efc929;
+}
+
+.tool-card-blue-light .tool-card-bottom {
+    background: #3bb3e4;
+}
+
+
+/* =========================================
+   CONTINUOUS CARD ANIMATION
+========================================= */
+
+.tools-section.tools-active
+.tool-card-blue {
+
+    animation:
+        cardBlueFloat
+        3.2s
+        ease-in-out
+        infinite;
+}
+
+
+.tools-section.tools-active
+.tool-card-green {
+
+    animation:
+        cardGreenFloat
+        3.4s
+        ease-in-out
+        infinite;
+
+    animation-delay: -0.7s;
+}
+
+
+.tools-section.tools-active
+.tool-card-yellow {
+
+    animation:
+        cardYellowFloat
+        3.3s
+        ease-in-out
+        infinite;
+
+    animation-delay: -1.2s;
+}
+
+
+.tools-section.tools-active
+.tool-card-blue-light {
+
+    animation:
+        cardLightBlueFloat
+        3.5s
+        ease-in-out
+        infinite;
+
+    animation-delay: -1.8s;
+}
+
+
+/* =========================================
+   VERY SLIGHT MOVEMENT
+========================================= */
+
+@keyframes cardBlueFloat {
+
+     0%,
+    100% {
+        transform:
+            rotate(6deg)
+            translateX(0)
+            translateY(15px);
+    }
+
+    50% {
+        transform:
+            rotate(4.5deg)
+            translateX(-4px)
+            translateY(11px);
+    }
+}
+
+
+@keyframes cardGreenFloat {
+
+  0%,
+    100% {
+        transform:
+            rotate(-6deg)
+            translateX(0)
+            translateY(8px);
+    }
+
+    50% {
+        transform:
+            rotate(-4.5deg)
+            translateX(3px)
+            translateY(5px);
+    }
+}
+
+
+@keyframes cardYellowFloat {
+
+    0%,
+    100% {
+        transform:
+            rotate(6deg)
+            translateX(0)
+            translateY(15px);
+    }
+
+    50% {
+        transform:
+            rotate(4.5deg)
+            translateX(-4px)
+            translateY(11px);
+    }
+}
+
+
+@keyframes cardLightBlueFloat {
+
+    0%,
+    100% {
+        transform:
+            rotate(-6deg)
+            translateX(0)
+            translateY(8px);
+    }
+
+    50% {
+        transform:
+            rotate(-4.5deg)
+            translateX(3px)
+            translateY(5px);
+    }
+}
+
+
+/* =========================================
+   HOVER — CARD COMES SLIGHTLY UP
+========================================= */
+
+.tool-card:hover {
+
+    animation-play-state: paused;
+
+    filter:
+        drop-shadow(
+            0
+            22px
+            25px
+            rgba(0, 0, 0, 0.45)
+        );
+
+    z-index: 20;
+}
+
+
+/* Individual hover positions */
+
+.tool-card-blue:hover {
+
+    transform:
+        rotate(-7deg)
+        translateY(-12px)
+        scale(1.02);
+}
+
+
+.tool-card-green:hover {
+
+    transform:
+        rotate(-1deg)
+        translateY(2px)
+        scale(1.02);
+}
+
+
+.tool-card-yellow:hover {
+
+    transform:
+        rotate(6deg)
+        translateY(-1px)
+        scale(1.02);
+}
+
+
+.tool-card-blue-light:hover {
+
+    transform:
+        rotate(-6deg)
+        translateY(-9px)
+        scale(1.02);
+}
+/* =========================================
+   FILM GRAIN
+========================================= */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    inset: -50%;
+
+    width: 200%;
+
+    height: 200%;
+
+    pointer-events: none;
+
+    z-index: 9999;
+
+    opacity: 0.20;
+
+    background-image:
+
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+
+    mix-blend-mode: screen;
+
+    animation:
+        grain
+        0.50s
+        steps(2)
+        infinite;
+}
+
+
+@keyframes grain {
+
+    0% {
+        transform:
+            translate(0, 0);
+    }
+
+    25% {
+        transform:
+            translate(-2%, 2%);
+    }
+
+    50% {
+        transform:
+            translate(2%, -2%);
+    }
+
+    75% {
+        transform:
+            translate(2%, 2%);
+    }
+
+    100% {
+        transform:
+            translate(0, 0);
+    }
+}
+
+
+/* =================================================
+   TABLET
+================================================= */
+
+
+
+
+
+/* =========================================
+   MOVING SERVICE SLIDES
+========================================= */
+
+.service-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    /* Soft fade on both sides so slides feel like they enter/exit */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.35) 4%,
+        #000 12%,
+        #000 88%,
+        rgba(0, 0, 0, 0.35) 96%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(0, 0, 0, 0.35) 4%,
+        #000 12%,
+        #000 88%,
+        rgba(0, 0, 0, 0.35) 96%,
+        transparent 100%
+    );
+
+    margin-top: 100px;
+    padding: 0 0 120px;
+}
+
+.service-track {
+    display: flex;
+    align-items: stretch;
+
+    width: max-content;
+
+    gap: 24px;
+
+    animation: serviceSlideMove 22s linear infinite;
+
+    will-change: transform;
+}
+
+
+/* Individual slide */
+
+.service-slide {
+    position: relative;
+
+    width: 400px;
+    height: 400px;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.992);
+    /* Slight curved / flowing shape */
+    border-radius: 42px 18px 42px 18px / 28px 18px 34px 18px;
+
+    padding: 34px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: transparent;
+
+    color: #fff;
+
+    box-sizing: border-box;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+
+     /* transform: translateY(-12px);
+box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);    */
+}
+
+
+/* Heading */
+
+.service-slide h3 {
+    margin: 0;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 31px;
+    font-weight: 800;
+
+    line-height: 0.98;
+
+    letter-spacing: -1.5px;
+
+    text-transform: uppercase;
+}
+
+
+/* Paragraph */
+
+.service-slide p {
+    margin: 0;
+
+    max-width: 285px;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    line-height: 1.15;
+
+    color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* Hover */
+
+.service-slide:hover {
+    transform: translateY(-12px);
+
+    border-color: rgba(255, 255, 255, 0.75);
+
+    background: rgba(255, 255, 255, 0.025);
+}
+
+
+/* Continuous movement */
+
+@keyframes serviceSlideMove {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* Pause when cursor is over slides */
+
+.service-slider:hover .service-track {
+    animation-play-state: paused;
+}
+
+
+/* Mobile */
+
+
+/* =========================================
+   FIFTH SECTION - AMAN'S STORY
+========================================= */
+/* =========================================
+   FIFTH SECTION - AMAN'S STORY
+========================================= */
+
+.story-section {
+    position: relative;
+
+    width: 100%;
+    min-height: 1000px;
+
+    padding: 20px 18% 200px;
+
+    background: #f3f1ec;
+    color: #050505;
+
+    overflow: hidden;
+}
+
+
+/* MAIN TOP LAYOUT */
+
+.story-top {
+    width: 100%;
+    max-width: 3250px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 65px;
+}
+
+
+/* LEFT IMAGE */
+
+.story-profile-image {
+    width: 280px;
+    height: 370px;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+
+.story-profile-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* RIGHT CONTENT */
+
+.story-info {
+    max-width: 580px;
+}
+
+
+/* LABEL */
+
+.story-label {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-family: "DM Sans", Arial, sans-serif;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    margin-bottom: 22px;
+}
+
+
+.story-label span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #25834e;
+}
+
+
+/* DESCRIPTION */
+
+.story-description {
+    margin: 0;
+
+    font-family: "DM Sans", Arial, sans-serif;
+
+    font-size: 22px;
+    font-weight: 500;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.7px;
+}
+
+
+/* SOCIAL ICONS */
+
+.story-socials {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+
+    margin-top: 30px;
+}
+
+
+.story-socials a {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #050505;
+
+    text-decoration: none;
+
+    transition: transform 0.25s ease;
+}
+
+
+.story-socials a:hover {
+    transform: translateY(-3px);
+}
+
+
+.story-socials svg {
+    width: 25px;
+    height: 25px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================
+   STORY VIDEO CAROUSEL
+========================================= */
+
+.story-carousel {
+    position: relative;
+
+    width: 100%;
+    height: 650px;
+
+    margin-top: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* MAIN VIDEO AREA */
+
+.story-images {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================
+   VIDEO CARDS
+========================================= */
+
+.story-image {
+    position: absolute;
+
+    width: 370px;
+    height: 600px;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: #111;
+
+    transition:
+        transform 0.8s cubic-bezier(.22,.61,.36,1),
+        opacity 0.8s ease,
+        filter 0.8s ease;
+
+    will-change:
+        transform,
+        opacity,
+        filter;
+       
+    box-shadow:
+        0 18px 30px rgba(0, 0, 0, 0.28),
+        0 6px 12px rgba(0, 0, 0, 0.18);
+
+}
+
+
+.story-image video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* =========================================
+   SOUND ICON — VIDEO KE UPAR
+========================================= */
+
+.video-sound {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    color: white;
+
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 50;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+
+/* SIRF ACTIVE VIDEO KA SOUND BUTTON */
+
+.story-image.active-video .video-sound {
+    opacity: 1;
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   ARROWS
+========================================= */
+
+.story-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 56px;
+    height: 48px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #626464;
+
+    color: #d8eadd;
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 100;
+}
+.story-carousel {
+    overflow: visible !important;
+}
+
+.story-images {
+    overflow: visible !important;
+}
+
+.story-prev,
+.story-next {
+    z-index: 9999 !important;
+}
+.story-prev {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 580px);
+    transform: translateY(-50%);
+    z-index: 999 !important;
+}
+
+.story-next {
+    position: absolute;
+    top: 50%;
+    right: calc(50% - 580px);
+    transform: translateY(-50%);
+    z-index: 999 !important;
+}
+
+
+/* =================================================
+   SOLID-COLOR SCROLL TRANSITIONS
+   NO GREY / NO COLOR BLENDING
+================================================= */
+
+.tv-section::before,
+.message-section::before,
+.tools-section::before,
+.story-section::before {
+    content: "";
+    position: absolute;
+
+    top: -2px;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+
+    background: var(--next-bg);
+
+    clip-path: inset(
+        calc(100% - var(--bg-reveal) - 2px)
+        0
+        0
+        0
+    );
+
+    pointer-events: none;
+    z-index: 0;
+}
+.story-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* =========================================================
+   FOURTH PAGE — CREATIVE STICKERS
+========================================================= */
+
+.creative-sticker {
+    position: absolute;
+    z-index: 20;
+    user-select: none;
+    -webkit-user-drag: none;
+    touch-action: none;
+    cursor: grab;
+    pointer-events: auto;
+}
+
+.creative-sticker.dragging {
+    cursor: grabbing;
+    z-index: 999;
+}
+
+
+/* =========================
+   PAPERCLIP
+========================= */
+
+.creative-paperclip {
+    width: 120px;
+    left: 187px;
+    top: 60px;
+    transform: rotate(-6deg);
+}
+
+
+/* =========================
+   CLOUD
+========================= */
+
+.creative-cloud {
+    width: 270px;
+    right: 135px;
+    top: 14px;
+
+    animation:
+        creativeCloudFloat
+        4.5s
+        ease-in-out
+        infinite
+        alternate;
+}
+
+@keyframes creativeCloudFloat {
+
+    from {
+        transform:
+            translate(0px, 0px)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translate(8px, -5px)
+            rotate(2deg);
+    }
+}
+
+
+/* =========================
+   STAR
+========================= */
+
+.creative-star {
+    width: 220px;
+    right: 310px;
+    top: 530px;
+    transform: rotate(8deg);
+}
+
+/* =========================================================
+   RESPONSIVE SAFETY LAYER
+   Keeps the existing desktop design untouched.
+   Only adapts spacing, sizing and positioning below desktop.
+========================================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MOBILE FIX — keep all four creative tool cards visible without changing desktop/tablet */
+
+
+
+/* =========================
+   TV RESPONSIVE FIX
+========================= */
+
+.tv-stage{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.tv-image{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+/* Tablet */
+
+
+/* Mobile */
+
+
+/* Small Phones */
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact-section {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 720px;
+
+    background: #000;
+
+    overflow: hidden;
+
+    color: #f5f2ec;
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT TEXTURE
+--------------------------------------------------------- */
+
+.contact-section::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .16;
+
+    
+
+    z-index: 0;
+}
+
+
+/* ---------------------------------------------------------
+   CONTACT INNER
+--------------------------------------------------------- */
+
+.contact-inner {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 720px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        70px
+        30px
+        90px;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   CONTACT HEADING
+========================================================= */
+
+.contact-title {
+
+    margin: 0;
+
+    text-align: center;
+
+    color: #f5f2ec;
+
+    font-family:
+      "Fredoka", sans-serif;
+       
+
+    font-size:
+        clamp(
+            72px,
+            7.3vw,
+            116px
+        );
+
+    font-weight: 800;
+
+    line-height: .82;
+
+    letter-spacing: -4px;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.contact-subtitle {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    color: #f5f2ec;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 18px;
+
+    line-height: 1.35;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   BUTTON WRAPPER
+========================================================= */
+
+.contact-button-wrap {
+
+    position: relative;
+
+    width: 500px;
+
+    height: 90px;
+
+    margin-top: 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+/* =========================================================
+   CONTACT BUTTON
+========================================================= */
+
+.contact-button {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 220px;
+
+    height: 45px;
+
+    border-radius: 20px;
+
+    background: #f4ef3c;
+
+    color: #171717;
+
+    text-decoration: none;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    /*
+       Screenshot jaisa halka sa tilt
+    */
+
+    transform: rotate(3deg);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    z-index: 5;
+}
+
+
+.contact-button:hover {
+
+    transform:
+        rotate(-1.5deg)
+        scale(1.03);
+
+    box-shadow:
+        0 10px 30px
+        rgba(244, 239, 60, .15);
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+/* =====================================================
+   SPINNER — FIXED IN ONE PLACE
+   ONLY ROTATES AROUND ITS OWN CENTER
+===================================================== */
+
+/* =========================================
+   SPINNER — FIXED AXIS
+========================================= */
+
+.spinner-fixed {
+    position: absolute;
+
+    width: 15px;
+    height: 15px;
+
+    left: 120px;
+    top: 47%;
+
+    transform: translateY(-50%);
+
+    z-index: 20;
+
+    /*
+       YE POINT KABHI MOVE NAHI HOGA
+    */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    pointer-events: none;
+}
+
+
+/* ONLY THE DISC ROTATES */
+
+.spinner-fixed .contact-spinner {
+
+    width: 150px;
+    height: 150px;
+
+    display: block;
+
+    object-fit: contain;
+
+    margin: 0;
+    padding: 0;
+
+    transform: none;
+
+    transform-origin: 50% 50%;
+
+    animation:
+        spinner-spin
+        2.8s
+        linear
+        infinite;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* NO SIDE MOVEMENT — PURE AXIS ROTATION */
+
+@keyframes spinner-spin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+/* =========================================================
+   STAR
+========================================================= */
+
+.contact-star {
+
+    position: absolute;
+
+    width: 145px;
+
+    height: 145px;
+
+    object-fit: contain;
+
+    /*
+       Screenshot mein right upper side
+    */
+
+    top: 125px;
+
+    right: 13%;
+
+    z-index: 30;
+
+    cursor: grab;
+
+    touch-action: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+.contact-star.dragging {
+
+    cursor: grabbing;
+
+    z-index: 9999;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: visible;
+
+    color: #f5f0e8;
+}
+
+
+/* =========================================================
+   BLUE FOOTER AREA
+========================================================= */
+
+.footer-blue {
+
+    position: relative;
+
+    width: 100%;
+
+    /*
+       Reference ke close height
+    */
+
+    height: 370px;
+
+    background: #0f498b;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.55'/%3E%3C/svg%3E");
+
+    overflow: visible;
+
+    z-index: 2;
+}
+
+
+/* ---------------------------------------------------------
+   BLUE TEXTURE
+--------------------------------------------------------- */
+
+.footer-blue::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .16;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='noise2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise2)' opacity='.5'/%3E%3C/svg%3E");
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   FOOTER CONTENT
+========================================================= */
+
+.footer-content {
+
+    position: relative;
+
+    height: 100%;
+
+    padding:
+        55px
+        5%;
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   FOOTER TITLE
+========================================================= */
+
+.footer-title {
+
+    margin: 0;
+
+    color: #f5f0e8;
+
+    font-family:
+      "Fredoka", sans-serif;
+       
+
+    font-size:
+        clamp(
+            78px,
+            8vw,
+            125px
+        );
+
+    font-weight: 800;
+
+    line-height: .82;
+
+    letter-spacing: -4px;
+}
+
+
+/* =========================================================
+   FOOTER TAGLINE
+========================================================= */
+
+.footer-tagline {
+
+    margin-top: 28px;
+
+    color: #f5f0e8;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   FOOTER NAVIGATION
+========================================================= */
+
+.footer-links {
+
+    position: absolute;
+
+    left: 5%;
+
+    bottom: 35px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+
+.footer-links a {
+
+    color: #f5f0e8;
+
+    text-decoration: none;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.15;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+
+.footer-links a:hover {
+
+    opacity: .7;
+
+    transform:
+        translateX(3px);
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.footer-phone {
+
+    position: absolute;
+
+    /*
+       RIGHT SIDE
+    */
+
+    right: -2%;
+    rotate: -10deg;
+
+    /*
+       Blue se neeche niklega
+       aur black area ke upar rahega
+    */
+
+    bottom: -90px;
+
+    width: 600px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   BLACK BOTTOM
+========================================================= */
+
+.footer-black {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 112px;
+
+    padding:
+        32px
+        5%;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        2fr
+        1fr;
+
+    align-items: start;
+
+    background: #000;
+
+    color: #eee;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM TEXT
+========================================================= */
+
+.footer-location,
+.footer-middle,
+.footer-social {
+
+    display: flex;
+
+    flex-direction: column;
+
+    font-family:
+        "DM Sans",
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    line-height: 1.2;
+}
+
+
+.footer-middle {
+
+    justify-self: center;
+}
+
+
+.footer-social {
+
+    justify-self: end;
+}
+
+
+.footer-social a {
+
+    color: #eee;
+
+    text-decoration: none;
+
+    font-size: 9px;
+}
+
+
+.footer-social a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   JAGGED BLUE / BLACK DIVIDER
+========================================================= */
+
+.footer-black::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    top: -8px;
+
+    height: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 5px,
+            #467da4 5px,
+            #467da4 10px,
+            transparent 10px
+        )
+        0 0 / 10px 10px repeat-x;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+
+.footer-middle a {
+    color: white;
+    text-decoration: none;
+}
+/* =========================================
+   TV + VIDEO
+========================================= */
+
+.tv-wrapper {
+    position: relative;
+    width: min(700px, 80vw);
+    flex-shrink: 0;
+    transform: scale(var(--tv-scale, 1));
+    transform-origin: center center;
+    will-change: transform;
+    overflow: hidden;
+}
+/* =========================================
+   TV SPEAKER — SOUND WAVE EFFECT
+========================================= */
+
+/* =========================================
+   TV SPEAKER — 3 SOUND WAVES
+========================================= */
+
+.tv-sound-wave,
+.tv-sound-wave::before,
+.tv-sound-wave::after {
+    position: absolute;
+
+    left: 87%;
+    top: 69%;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255, 255, 255, 0.75);
+
+    box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.45),
+        0 0 15px rgba(255, 255, 255, 0.25);
+
+    pointer-events: none;
+
+    z-index: 20;
+}
+
+
+/* BIGGEST */
+.tv-sound-wave {
+    width: 55px;
+    height: 55px;
+
+    transform: translate(-50%, -50%);
+    animation: tvWaveBig 1.4s ease-out infinite;
+}
+
+
+/* SMALL + MEDIUM */
+.tv-sound-wave::before,
+.tv-sound-wave::after {
+    content: "";
+    display: block;
+
+    left: 50%;
+    top: 50%;
+}
+
+
+/* SMALL */
+.tv-sound-wave::before {
+    width: 35px;
+    height: 35px;
+
+    transform: translate(-50%, -50%);
+
+    animation: tvWaveSmall 1.4s ease-out infinite;
+}
+
+
+/* MEDIUM */
+.tv-sound-wave::after {
+    width: 45px;
+    height: 45px;
+
+    transform: translate(-50%, -50%);
+
+    animation: tvWaveMedium 1.4s ease-out infinite;
+}
+
+
+/* BIG */
+@keyframes tvWaveBig {
+
+    0% {
+        transform: translate(-50%, -50%) scale(0.75);
+        opacity: 0.15;
+    }
+
+    35% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+    }
+}
+
+
+/* MEDIUM */
+@keyframes tvWaveMedium {
+
+    0% {
+        transform: translate(-50%, -50%) scale(0.75);
+        opacity: 0.2;
+    }
+
+    35% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.55);
+        opacity: 0;
+    }
+}
+
+
+/* SMALL */
+@keyframes tvWaveSmall {
+
+    0% {
+        transform: translate(-50%, -50%) scale(0.75);
+        opacity: 0.25;
+    }
+
+    35% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.35);
+        opacity: 0;
+    }
+}
+
+.tv-video {
+    position: absolute;
+    left: 8.52%;
+    top: 29.07%;
+    width: 63.98%;
+    height: 48.24%;
+    object-fit: fill;
+    object-position: center;
+    background: #000;
+    
+    z-index: 0.8;
+    display: block;
+    pointer-events: none;
+}
+
+.tv-image {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+/* =========================================
+   TV — STOP BACKGROUND MERGING
+========================================= */
+
+
+
+
+/* TV maximum size */
+
+
+
+/* Keep TV above everything */
+
+.tv-stage {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.tv-wrapper {
+    z-index: 10;
+}
+/* TV → THIRD PAGE BACKGROUND TRANSITION FIX */
+
+.tv-section {
+    position: relative;
+    isolation: isolate;
+}
+
+.tv-section::before {
+    z-index: 1;
+}
+
+.tv-stage {
+    position: sticky;
+    z-index: 2;
+}
+/* =========================================================
+   RESPONSIVE DESIGN
+   Desktop/Laptop original design remains unchanged
+========================================================= */
+
+
+/* =========================
+   TABLET
+   769px - 1100px
+========================= */
+
+
+
+
+/* =========================
+   PHONES
+   768px AND BELOW
+========================= */
+
+
+
+
+/* =========================
+   VERY SMALL PHONES
+   420px AND BELOW
+========================= */
+
+
+
+
+/* =========================
+   LANDSCAPE PHONES
+========================= */
+
+
+/* =========================================================
+   FINAL MOBILE + TABLET FIX
+   DO NOT CHANGE DESKTOP DESIGN
+========================================================= */
+
+
+/* =========================================================
+   1. TV — MOBILE + TABLET
+========================================================= */
+
+
+
+
+/* =========================================================
+   TV — SMALL TABLETS
+========================================================= */
+
+
+
+
+/* =========================================================
+   TV — PHONES
+========================================================= */
+
+
+
+
+/* =========================================================
+   2. BIG MESSAGE — FIX
+========================================================= */
+
+
+
+
+/* =========================================================
+   BIG MESSAGE — PHONE
+========================================================= */
+
+
+
+
+/* =========================================================
+   BIG MESSAGE — VERY SMALL PHONE
+========================================================= */
+
+
+
+
+/* =========================================================
+   3. CREATIVE TOOLS — FORCE ALL 4 CARDS
+========================================================= */
+
+
+
+
+/* =========================================================
+   CREATIVE TOOLS — PHONE
+========================================================= */
+
+
+
+
+/* =========================================================
+   CREATIVE TOOLS — SMALL PHONE
+========================================================= */
+
+
+
+
+/* =========================================================
+   CREATIVE TOOLS — VERY SMALL PHONE
+========================================================= */
+
+
+
+
+/* =========================================================
+   4. CONTACT — SPINNER MUST STAY ON BUTTON
+========================================================= */
+
+
+/* VIDEO BLUR */
+.tv-video.blur-video{
+    filter: blur(6px);
+    transition: 0.8s;
+}
+
+/* OVERLAY */
+.tv-continue-overlay{
+    position: absolute;
+    top: 29%;
+    left: 8.5%;
+    width: 64%;
+    height: 48%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,0.3);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.5s;
+}
+
+.tv-continue-overlay.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+.tv-continue-btn{
+    padding: 16px 28px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    border: 1px solid white;
+    font-size: 20px;
+}
+
+
+
+/* =========================================================
+   RESPONSIVE SYSTEM
+   ---------------------------------------------------------
+   Laptop design (1101px - 1366px) remains untouched.
+   All other screen sizes use the same laptop proportions.
+========================================================= */
+
+@media (max-width: 1100px), (min-width: 1367px) {
+
+    :root {
+        --screen-scale: clamp(
+            .25,
+            calc(100vw / 1366px),
+            1
+        );
+    }
+
+    /* NAVBAR */
+    .navbar {
+        height: calc(70px * var(--screen-scale));
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .logo img {
+        width: calc(150px * var(--screen-scale));
+    }
+
+    .nav-links {
+        gap: calc(34px * var(--screen-scale));
+    }
+
+    .nav-links a {
+        font-size: calc(18px * var(--screen-scale));
+    }
+
+    /* HERO
+       ---------------------------------------------------------
+       TABLET:
+       Keep the laptop artwork size.
+
+       PHONE:
+       Scale the complete hero artwork down according to
+       the phone width.
+
+       DESKTOP / LARGE PC:
+       Everything grows together from the laptop reference.
+       Heading and Start Project always stay centered inside
+       the green board.
+    --------------------------------------------------------- */
+
+    .hero {
+        height: calc(100vh - (70px * var(--screen-scale)));
+        min-height: calc(650px * var(--screen-scale));
+        padding: 0 4.2% calc(40px * var(--screen-scale));
+    }
+
+    .board {
+        position: relative;
+        height: 85%;
+        min-height: calc(450px * var(--screen-scale));
+        border-radius: calc(36px * var(--screen-scale));
+    }
+
+    /* Default: laptop reference size */
+    .camera {
+        width: 430px;
+        top: -58px;
+        left: -55px;
+    }
+
+    .content-sticker {
+        width: 225px;
+        top: 28px;
+        right: 62px;
+    }
+
+    .search-icon {
+        width: 210px;
+        left: 95px;
+        bottom: 12px;
+    }
+
+    .book-sticker {
+        width: 430px;
+        right: -95px;
+        bottom: -155px;
+    }
+
+    .cloud-left {
+        width: 275px;
+        left: -58px;
+        top: 118px;
+    }
+
+    .cloud-right {
+        width: 430px;
+        right: -140px;
+        top: -82px;
+    }
+
+    .cloud-middle {
+        width: 165px;
+        left: 190px;
+        bottom: 48px;
+    }
+
+    /* Heading is ALWAYS centered in the green board */
+    .hero-text {
+        top: 50%;
+        left: 50%;
+        width: 560px;
+        font-size: 76px;
+        letter-spacing: -3.2px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    /*
+       Start Project is ALWAYS directly below Creative Marketing.
+
+       The 125px offset is the laptop reference distance.
+       It scales by exactly the same factor as the heading.
+    */
+    .start-project-link {
+        top: 50%;
+        left: 50%;
+        width: 285px;
+        transform:
+            translate(
+                -50%,
+                calc(77px * var(--hero-scale, 1))
+            );
+    }
+
+    .start-project-link .start-project {
+        width: 100%;
+    }
+
+
+    /* =====================================================
+       PHONE ONLY
+       Phone gets its own proportional scale.
+       Tablet keeps the laptop-size artwork.
+    ===================================================== */
+
+    @media (max-width: 600px) {
+
+        .hero {
+            padding-left: 3%;
+            padding-right: 3%;
+        }
+
+        .board {
+            min-height: 500px;
+        }
+
+        :root {
+            --hero-scale: clamp(
+                .45,
+                calc(100vw / 768px),
+                .78
+            );
+        }
+
+        .camera {
+            width: calc(430px * var(--hero-scale));
+            top: calc(-58px * var(--hero-scale));
+            left: calc(-55px * var(--hero-scale));
+        }
+
+        .content-sticker {
+            width: calc(225px * var(--hero-scale));
+            top: calc(28px * var(--hero-scale));
+            right: calc(62px * var(--hero-scale));
+        }
+
+        .search-icon {
+            width: calc(210px * var(--hero-scale));
+            left: calc(95px * var(--hero-scale));
+            bottom: calc(12px * var(--hero-scale));
+        }
+
+        .book-sticker {
+            width: calc(430px * var(--hero-scale));
+            right: calc(-95px * var(--hero-scale));
+            bottom: calc(-155px * var(--hero-scale));
+        }
+
+        .cloud-left {
+            width: calc(275px * var(--hero-scale));
+            left: calc(-58px * var(--hero-scale));
+            top: calc(118px * var(--hero-scale));
+        }
+
+        .cloud-right {
+            width: calc(430px * var(--hero-scale));
+            right: calc(-140px * var(--hero-scale));
+            top: calc(-82px * var(--hero-scale));
+        }
+
+        .cloud-middle {
+            width: calc(165px * var(--hero-scale));
+            left: calc(190px * var(--hero-scale));
+            bottom: calc(48px * var(--hero-scale));
+        }
+
+        /* Heading scales EXACTLY with the artwork */
+        .hero-text {
+            width: calc(560px * var(--hero-scale));
+            font-size: calc(76px * var(--hero-scale));
+            letter-spacing: calc(-3.2px * var(--hero-scale));
+        }
+
+        /* Same proportional gap below heading */
+        .start-project-link {
+            width: calc(285px * var(--hero-scale));
+        }
+    }
+
+
+    /* =====================================================
+       LARGE PC
+       Everything grows together.
+       At 3x the laptop reference, hero artwork + heading
+       become 3x the laptop size.
+    ===================================================== */
+
+    @media (min-width: 1367px) {
+
+        :root {
+            --hero-scale: var(--screen-scale);
+        }
+
+        .camera {
+            width: calc(430px * var(--hero-scale));
+            top: calc(-58px * var(--hero-scale));
+            left: calc(-55px * var(--hero-scale));
+        }
+
+        .content-sticker {
+            width: calc(225px * var(--hero-scale));
+            top: calc(28px * var(--hero-scale));
+            right: calc(62px * var(--hero-scale));
+        }
+
+        .search-icon {
+            width: calc(210px * var(--hero-scale));
+            left: calc(95px * var(--hero-scale));
+            bottom: calc(12px * var(--hero-scale));
+        }
+
+        .book-sticker {
+            width: calc(430px * var(--hero-scale));
+            right: calc(-95px * var(--hero-scale));
+            bottom: calc(-155px * var(--hero-scale));
+        }
+
+        .cloud-left {
+            width: calc(275px * var(--hero-scale));
+            left: calc(-58px * var(--hero-scale));
+            top: calc(118px * var(--hero-scale));
+        }
+
+        .cloud-right {
+            width: calc(430px * var(--hero-scale));
+            right: calc(-140px * var(--hero-scale));
+            top: calc(-82px * var(--hero-scale));
+        }
+
+        .cloud-middle {
+            width: calc(165px * var(--hero-scale));
+            left: calc(190px * var(--hero-scale));
+            bottom: calc(48px * var(--hero-scale));
+        }
+
+        .hero-text {
+            width: calc(560px * var(--hero-scale));
+            font-size: calc(76px * var(--hero-scale));
+            letter-spacing: calc(-3.2px * var(--hero-scale));
+        }
+
+        .start-project-link {
+            width: calc(285px * var(--hero-scale));
+        }
+    }
+
+    /* TV */
+    .tv-continue-btn {
+        padding: calc(16px * var(--screen-scale)) calc(28px * var(--screen-scale));
+        border-radius: calc(15px * var(--screen-scale));
+        font-size: calc(20px * var(--screen-scale));
+    }
+
+    /* MESSAGE */
+    .message-section {
+        min-height: calc(1200px * var(--screen-scale));
+        padding-top: calc(289px * var(--screen-scale));
+        padding-bottom: calc(100px * var(--screen-scale));
+        padding-left: 7%;
+        padding-right: 7%;
+    }
+
+    .message-content {
+        max-width: calc(1450px * var(--screen-scale));
+    }
+
+    .big-message {
+        font-size: calc(120px * var(--screen-scale));
+        letter-spacing: calc(-0.79px * var(--screen-scale));
+    }
+
+    .think {
+        top: calc(-20px * var(--screen-scale));
+        padding: calc(12px * var(--screen-scale)) calc(22px * var(--screen-scale));
+        font-size: calc(19px * var(--screen-scale));
+        border-radius: calc(11px * var(--screen-scale));
+    }
+
+    .make {
+        top: calc(100px * var(--screen-scale));
+        right: calc(260px * var(--screen-scale));
+        padding: calc(14px * var(--screen-scale)) calc(24px * var(--screen-scale));
+        font-size: calc(19px * var(--screen-scale));
+        border-radius: calc(11px * var(--screen-scale));
+    }
+
+    .grow {
+        bottom: calc(-25px * var(--screen-scale));
+        padding: calc(12px * var(--screen-scale)) calc(24px * var(--screen-scale));
+        font-size: calc(19px * var(--screen-scale));
+        border-radius: calc(11px * var(--screen-scale));
+    }
+
+    /* CREATIVE TOOLS */
+    .tools-section {
+        min-height: calc(100vh * var(--screen-scale));
+        padding-top: calc(110px * var(--screen-scale));
+        padding-bottom: calc(130px * var(--screen-scale));
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+
+    .tools-wrapper {
+        max-width: calc(1000px * var(--screen-scale));
+    }
+
+    .tools-title {
+        margin-bottom: calc(80px * var(--screen-scale));
+        font-size: calc(68px * var(--screen-scale));
+        letter-spacing: calc(-4px * var(--screen-scale));
+    }
+
+    .tools-cards {
+        padding-top: calc(15px * var(--screen-scale));
+        padding-bottom: calc(120px * var(--screen-scale));
+    }
+
+    .tool-card {
+        width: calc(240px * var(--screen-scale));
+        height: calc(370px * var(--screen-scale));
+        border-radius: calc(22px * var(--screen-scale));
+    }
+
+    .tool-card-image {
+        top: calc(7px * var(--screen-scale));
+        left: calc(7px * var(--screen-scale));
+        right: calc(7px * var(--screen-scale));
+    }
+
+    .tool-card-bottom {
+        padding:
+            calc(30px * var(--screen-scale))
+            calc(24px * var(--screen-scale))
+            calc(22px * var(--screen-scale));
+        font-size: calc(28px * var(--screen-scale));
+    }
+
+    .creative-paperclip {
+        width: calc(120px * var(--screen-scale));
+        left: calc(187px * var(--screen-scale));
+        top: calc(60px * var(--screen-scale));
+    }
+
+    .creative-cloud {
+        width: calc(270px * var(--screen-scale));
+        right: calc(135px * var(--screen-scale));
+        top: calc(14px * var(--screen-scale));
+    }
+
+    .creative-star {
+        width: calc(220px * var(--screen-scale));
+        right: calc(310px * var(--screen-scale));
+        top: calc(530px * var(--screen-scale));
+    }
+
+    /* SERVICE SLIDER */
+    .service-slider {
+        margin-top: calc(100px * var(--screen-scale));
+        padding-bottom: calc(120px * var(--screen-scale));
+    }
+
+    .service-track {
+        gap: calc(24px * var(--screen-scale));
+    }
+
+    .service-slide {
+        width: calc(400px * var(--screen-scale));
+        height: calc(400px * var(--screen-scale));
+        padding: calc(34px * var(--screen-scale));
+    }
+
+    .service-slide h3 {
+        font-size: calc(31px * var(--screen-scale));
+    }
+
+    .service-slide p {
+        font-size: calc(16px * var(--screen-scale));
+    }
+
+    /* STORY — SAME ROW, NO COLUMN RE-LAYOUT */
+    .story-section {
+        min-height: calc(1000px * var(--screen-scale));
+        padding-top: calc(20px * var(--screen-scale));
+        padding-bottom: calc(200px * var(--screen-scale));
+        padding-left: 18%;
+        padding-right: 18%;
+    }
+
+    .story-top {
+        gap: calc(65px * var(--screen-scale));
+    }
+
+    .story-profile-image {
+        width: calc(280px * var(--screen-scale));
+        height: calc(370px * var(--screen-scale));
+        border-radius: calc(8px * var(--screen-scale));
+    }
+
+    .story-info {
+        max-width: calc(580px * var(--screen-scale));
+    }
+
+    .story-label {
+        gap: calc(8px * var(--screen-scale));
+        font-size: calc(17px * var(--screen-scale));
+        margin-bottom: calc(22px * var(--screen-scale));
+    }
+
+    .story-label span {
+        width: calc(7px * var(--screen-scale));
+        height: calc(7px * var(--screen-scale));
+    }
+
+    .story-description {
+        font-size: calc(22px * var(--screen-scale));
+        letter-spacing: calc(-0.3px * var(--screen-scale));
+    }
+
+    .story-socials {
+        gap: calc(18px * var(--screen-scale));
+        margin-top: calc(22px * var(--screen-scale));
+    }
+
+    .story-socials svg {
+        width: calc(24px * var(--screen-scale));
+        height: calc(24px * var(--screen-scale));
+    }
+
+    .story-carousel {
+        height: calc(650px * var(--screen-scale));
+        margin-top: calc(300px * var(--screen-scale));
+    }
+
+    .story-image {
+        width: calc(370px * var(--screen-scale));
+        height: calc(600px * var(--screen-scale));
+        border-radius: calc(8px * var(--screen-scale));
+    }
+
+    .story-arrow {
+        width: calc(56px * var(--screen-scale));
+        height: calc(48px * var(--screen-scale));
+        font-size: calc(42px * var(--screen-scale));
+    }
+
+    .story-prev {
+        left: calc(50% - (580px * var(--screen-scale)));
+    }
+
+    .story-next {
+        right: calc(50% - (580px * var(--screen-scale)));
+    }
+
+    /* CONTACT */
+    .contact-section {
+        min-height: calc(720px * var(--screen-scale));
+    }
+
+    .contact-inner {
+        min-height: calc(720px * var(--screen-scale));
+        padding-top: calc(70px * var(--screen-scale));
+        padding-bottom: calc(90px * var(--screen-scale));
+        padding-left: calc(30px * var(--screen-scale));
+        padding-right: calc(30px * var(--screen-scale));
+    }
+
+    .contact-title {
+        font-size: calc(7.3vw * var(--screen-scale));
+        letter-spacing: calc(-4px * var(--screen-scale));
+    }
+
+    .contact-subtitle {
+        margin-top: calc(30px * var(--screen-scale));
+        font-size: calc(18px * var(--screen-scale));
+    }
+
+    .contact-button-wrap {
+        width: calc(500px * var(--screen-scale));
+        height: calc(90px * var(--screen-scale));
+        margin-top: calc(35px * var(--screen-scale));
+
+        --contact-button-width: calc(220px * var(--screen-scale));
+        --contact-spinner-size: calc(150px * var(--screen-scale));
+    }
+
+    .contact-button {
+        width: var(--contact-button-width);
+        height: calc(45px * var(--screen-scale));
+        border-radius: calc(20px * var(--screen-scale));
+        font-size: calc(20px * var(--screen-scale));
+    }
+
+    /* =====================================================
+       CONTACT SPINNER
+       EXACT SAME POSITIONAL RELATIONSHIP AS LAPTOP
+
+       Laptop reference:
+       left: 120px
+       top: 47%
+       transform: translateY(-50%)
+
+       Only its size scales. Its anchor does NOT move
+       independently from the contact-button-wrap.
+    ===================================================== */
+
+    .spinner-fixed {
+        width: calc(15px * var(--screen-scale));
+        height: calc(15px * var(--screen-scale));
+
+        left: calc(120px * var(--screen-scale));
+        top: 47%;
+
+        transform: translateY(-50%);
+    }
+
+    .spinner-fixed .contact-spinner {
+        width: calc(150px * var(--screen-scale));
+        height: calc(150px * var(--screen-scale));
+
+        transform-origin: 50% 50%;
+    }
+
+    .contact-star {
+        width: calc(145px * var(--screen-scale));
+        height: calc(145px * var(--screen-scale));
+        top: calc(125px * var(--screen-scale));
+    }
+
+    /* FOOTER */
+    .footer-blue {
+        height: calc(370px * var(--screen-scale));
+    }
+
+    .footer-content {
+        padding: calc(55px * var(--screen-scale)) 5%;
+    }
+
+    .footer-title {
+        font-size: calc(8vw * var(--screen-scale));
+        letter-spacing: calc(-4px * var(--screen-scale));
+    }
+
+    .footer-tagline {
+        margin-top: calc(28px * var(--screen-scale));
+        font-size: calc(17px * var(--screen-scale));
+    }
+
+    .footer-links {
+        bottom: calc(35px * var(--screen-scale));
+        gap: calc(1px * var(--screen-scale));
+    }
+
+    .footer-links a {
+        font-size: calc(14px * var(--screen-scale));
+    }
+
+    .footer-phone {
+        width: calc(600px * var(--screen-scale));
+        bottom: calc(-90px * var(--screen-scale));
+    }
+
+    .footer-black {
+        min-height: calc(112px * var(--screen-scale));
+        padding: calc(32px * var(--screen-scale)) 5%;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: calc(20px * var(--screen-scale));
+    }
+
+    .footer-location,
+    .footer-middle,
+    .footer-social {
+        font-size: calc(9px * var(--screen-scale));
+    }
+
+    .footer-social a {
+        font-size: calc(9px * var(--screen-scale));
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .cloud,
+    .creative-cloud,
+    .tool-card,
+    .service-track {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+/* =========================================
+   HERO — CREATIVE MARKETING → START PROJECT
+   SAME LAPTOP GAP ON ALL SCREEN SIZES
+========================================= */
+
+@media (max-width: 1366px) {
+
+    .start-project-link {
+        transform:
+            translate(
+                -50%,
+                calc(6px * var(--hero-scale, 1))
+            );
+    }
+
+}
+
+@media (min-width: 1367px) {
+
+    .start-project-link {
+        transform:
+            translate(
+                -50%,
+                calc(-30px * var(--hero-scale, 1))
+            );
+    }
+
+}
+
+/* =========================================================
+   MOBILE-ONLY REQUESTED FIXES
+   PAGE 1 / HERO IS NOT CHANGED
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* -----------------------------------------------------
+       PAGE 2 — TV
+       Starts small when the TV page enters.
+       JS grows it to the existing final size as the
+       second page moves toward the centre.
+    ----------------------------------------------------- */
+    .tv-section {
+        height: 165vh;
+        min-height: 900px;
+    }
+
+    .tv-stage {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .tv-wrapper {
+        width: min(700px, 88vw);
+        max-width: 88vw;
+        transform-origin: center center;
+    }
+
+    .tv-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .tv-video {
+        width: 63.98%;
+        height: 48.24%;
+    }
+
+    /* -----------------------------------------------------
+       PAGE 3 — MESSAGE
+       Text + stickers appear much faster on phone.
+    ----------------------------------------------------- */
+    .message-section {
+        min-height: 1050px;
+        padding: 90px 6% 90px;
+    }
+
+    .message-content {
+        width: 100%;
+        max-width: none;
+    }
+
+    .big-message {
+        width: 100%;
+        white-space: normal;
+        font-size: clamp(43px, 11.8vw, 68px);
+        line-height: .92;
+        letter-spacing: -1.8px;
+    }
+
+    .big-message .message-line {
+        width: max-content;
+        max-width: 100%;
+    }
+
+    .word-sticker {
+        z-index: 5;
+    }
+
+    .think {
+        top: -12px;
+        left: 58%;
+        font-size: 14px;
+        padding: 8px 13px;
+        border-radius: 8px;
+    }
+
+    .make {
+        top: 95px;
+        right: 4%;
+        font-size: 14px;
+        padding: 9px 14px;
+        border-radius: 8px;
+    }
+
+    .grow {
+        bottom: 0;
+        left: 22%;
+        font-size: 14px;
+        padding: 8px 14px;
+        border-radius: 8px;
+    }
+
+    /* -----------------------------------------------------
+       PAGE 4 + LOWER PAGES
+       Keep cards/slides readable and add the requested
+       breathing space between them.
+    ----------------------------------------------------- */
+    .tools-section {
+        min-height: auto;
+        padding: 80px 5% 100px;
+    }
+
+    .tools-title {
+        margin-bottom: 48px;
+        font-size: clamp(43px, 11vw, 62px);
+        letter-spacing: -2.5px;
+    }
+
+    .tools-cards {
+        gap: 16px;
+        padding: 10px 0 65px;
+    }
+
+    .tool-card {
+        width: min(240px, 67vw);
+        height: min(370px, 103vw);
+    }
+
+    .service-slider {
+        margin-top: 60px;
+        padding-bottom: 90px;
+    }
+
+    .service-track {
+        gap: 18px;
+    }
+
+    .service-slide {
+        width: min(400px, 82vw);
+        height: min(400px, 82vw);
+        padding: 28px;
+    }
+
+    /* Make the same website font explicitly available on phone.
+       Fredoka is already loaded in index.html; these declarations
+       prevent a mobile fallback from replacing the intended font. */
+    /* Keep the website's loaded Fredoka font consistent on the lower
+       mobile pages as well. Page 1 is intentionally left untouched. */
+    .tools-title,
+    .tool-card-bottom,
+    .service-slide h3,
+    .service-slide p,
+    .contact-title,
+    .footer-title {
+        font-family: "Fredoka", sans-serif;
+        font-synthesis: none;
+    }
+}
+
+/* Very small phones: same requested behavior, slightly tighter. */
+@media (max-width: 420px) {
+    .tv-wrapper {
+        width: 88vw;
+        max-width: 88vw;
+    }
+
+    .message-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .big-message {
+        font-size: clamp(39px, 11.8vw, 55px);
+        letter-spacing: -1.5px;
+    }
+
+    .tools-cards {
+        gap: 14px;
+    }
+
+    .service-track {
+        gap: 16px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE FINAL ALIGNMENT + PAGE SPACING
+   HERO / PAGE 1 IS NOT TOUCHED
+========================================================= */
+@media (max-width: 600px) {
+
+    /* Keep every lower page exactly inside the phone viewport.
+       This removes the left-shift / extra-right-space effect. */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .tv-section,
+    .message-section,
+    .tools-section,
+    .story-section,
+    .contact-section,
+    .footer-blue,
+    .footer-black {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* -------------------------
+       TV — keep current correct behaviour
+       small at entry -> big at middle
+    -------------------------- */
+    .tv-section {
+        height: 165vh;
+        min-height: 900px;
+    }
+
+    .tv-stage {
+        width: 100vw;
+        max-width: 100vw;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tv-wrapper {
+        width: 88vw;
+        max-width: 88vw;
+        margin: 0 auto;
+        transform-origin: center center;
+    }
+
+    /* -------------------------
+       THIRD PAGE — centered
+       Transition is controlled by JS.
+    -------------------------- */
+    .message-section {
+        min-height: 1050px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        display: block;
+    }
+
+    .message-content {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .big-message {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        white-space: normal;
+        font-family: "Fredoka", sans-serif;
+    }
+
+    .big-message .message-line {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Stickers remain attached to the centered message area. */
+    .think {
+        left: 58%;
+    }
+
+    .make {
+        right: 4%;
+    }
+
+    .grow {
+        left: 22%;
+    }
+
+    /* -------------------------
+       FOURTH PAGE — use the saved
+       breathing room between cards
+       and service slides.
+    -------------------------- */
+    .tools-section {
+        width: 100vw;
+        max-width: 100vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .tools-wrapper {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .tools-cards {
+        width: 100%;
+        justify-content: center;
+        gap: 16px;
+        padding-bottom: 45px;
+    }
+
+    /* This is the extra space moved between the cards and slides. */
+    .service-slider {
+        width: 100%;
+        margin-top: 125px;
+        padding-bottom: 90px;
+    }
+
+    .service-track {
+        gap: 18px;
+    }
+
+    .service-slide {
+        font-family: "Fredoka", sans-serif;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .message-section {
+        min-height: 1000px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .tools-section {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+
+    .tools-cards {
+        gap: 14px;
+        padding-bottom: 35px;
+    }
+
+    .service-slider {
+        margin-top: 110px;
+    }
+
+    .service-track {
+        gap: 16px;
+    }
+}
+
+
+/* =========================================================
+   PHONE ONLY — PAGE 4+ COMPACT LAYOUT
+   PAGE 1 + PAGE 2 ARE NOT TOUCHED
+   Desktop / laptop rules remain unchanged.
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* -------------------------
+       PAGE 4 — CREATIVE TOOLS
+       All four cards stay on the
+       same screen, centered.
+    ------------------------- */
+    .tools-section {
+        padding: 72px 12px 110px !important;
+        min-height: auto !important;
+    }
+
+    .tools-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .tools-title {
+        margin-bottom: 34px !important;
+        font-size: clamp(34px, 10vw, 48px) !important;
+        letter-spacing: -2px !important;
+    }
+
+    .tools-cards {
+        width: 100% !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+        gap: clamp(6px, 1.8vw, 11px) !important;
+        padding: 8px 0 0 !important;
+    }
+
+    .tool-card {
+        width: clamp(68px, 20vw, 88px) !important;
+        height: clamp(105px, 30vw, 132px) !important;
+        border-radius: 10px !important;
+    }
+
+    .tool-card-image {
+        top: 3px !important;
+        left: 3px !important;
+        width: calc(100% - 6px) !important;
+        height: 84% !important;
+        border-radius: 8px !important;
+    }
+
+    .tool-card-bottom {
+        height: 30% !important;
+        padding: 7px 5px 6px !important;
+        font-size: clamp(9px, 2.8vw, 12px) !important;
+        line-height: .9 !important;
+        letter-spacing: -.3px !important;
+    }
+
+    /* -------------------------
+       SPACE AFTER TOOL CARDS
+       ------------------------- */
+    .service-slider {
+        margin-top: 115px !important;
+        padding-bottom: 105px !important;
+    }
+
+    /* Keep the existing continuous
+       laptop-style slide animation. */
+    .service-track {
+        gap: clamp(10px, 3vw, 16px) !important;
+    }
+
+    .service-slide {
+        width: clamp(235px, 72vw, 285px) !important;
+        height: clamp(235px, 72vw, 285px) !important;
+        padding: clamp(18px, 5vw, 24px) !important;
+        border-radius: 28px 14px 28px 14px / 20px 14px 24px 14px !important;
+    }
+
+    .service-slide h3 {
+        font-size: clamp(20px, 6vw, 25px) !important;
+    }
+
+    .service-slide p {
+        max-width: 100% !important;
+        font-size: clamp(12px, 3.5vw, 14px) !important;
+    }
+
+    /* -------------------------
+       AMAN'S STORY
+       Compact but still keeps the
+       same visual relationship.
+    ------------------------- */
+    .story-section {
+        min-height: auto !important;
+        padding: 55px 7vw 150px !important;
+    }
+
+    .story-top {
+        width: 100% !important;
+        max-width: 100% !important;
+        gap: 20px !important;
+        align-items: center !important;
+    }
+
+    .story-profile-image {
+        width: clamp(105px, 29vw, 125px) !important;
+        height: clamp(140px, 39vw, 165px) !important;
+        flex-shrink: 0 !important;
+    }
+
+    .story-info {
+        max-width: none !important;
+        flex: 1 !important;
+    }
+
+    .story-label {
+        font-size: clamp(12px, 3.5vw, 15px) !important;
+        gap: 5px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .story-label span {
+        width: 5px !important;
+        height: 5px !important;
+    }
+
+    .story-description {
+        font-size: clamp(12px, 3.5vw, 15px) !important;
+        line-height: 1.2 !important;
+        letter-spacing: -.25px !important;
+    }
+
+    .story-socials {
+        gap: 12px !important;
+        margin-top: 14px !important;
+    }
+
+    .story-socials a {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .story-socials svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    /* -------------------------
+       SPACE BEFORE VIDEO CAROUSEL
+    ------------------------- */
+    .story-carousel {
+        width: 100% !important;
+        height: clamp(260px, 72vw, 310px) !important;
+        margin-top: 135px !important;
+        margin-bottom: 45px !important;
+        overflow: visible !important;
+    }
+
+    /*
+       Scale the WHOLE existing carousel animation rather
+       than replacing its transforms. This preserves the
+       laptop animation/positions while making every video
+       card small enough for a phone.
+    */
+    .story-images {
+        width: 100% !important;
+        height: 100% !important;
+        transform: scale(.24) !important;
+        transform-origin: center center !important;
+        overflow: visible !important;
+    }
+
+    .story-image {
+        /* JS keeps controlling the carousel animation. */
+        transition-duration: .8s !important;
+    }
+
+    .story-arrow {
+        width: 34px !important;
+        height: 32px !important;
+        font-size: 27px !important;
+    }
+
+    .story-prev {
+        left: 3px !important;
+    }
+
+    .story-next {
+        right: 3px !important;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .tools-cards {
+        gap: 5px !important;
+    }
+
+    .tool-card {
+        width: clamp(64px, 19vw, 78px) !important;
+        height: clamp(98px, 29vw, 116px) !important;
+    }
+
+    .service-slider {
+        margin-top: 105px !important;
+        padding-bottom: 95px !important;
+    }
+
+    .story-section {
+        padding-left: 5vw !important;
+        padding-right: 5vw !important;
+    }
+
+    .story-top {
+        gap: 15px !important;
+    }
+
+    .story-carousel {
+        margin-top: 120px !important;
+    }
+
+    .story-images {
+        transform: scale(.21) !important;
+    }
+}
+
+
+/* =========================================================
+   PERFORMANCE HELPERS — VISUAL DESIGN UNCHANGED
+   ========================================================= */
+img, video {
+    backface-visibility: hidden;
+}
+
+/* Let the browser skip off-screen poster/image decoding work where supported. */
+.story-image video {
+    background: #080808;
+}
+
+/* Avoid expensive motion for visitors who request reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================================
+   CONTACT SPINNER — KEEP ROTATING ON REAL PHONES
+   Even when the phone reports prefers-reduced-motion.
+========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    .contact-spinner {
+        animation: spinner-spin 2.8s linear infinite !important;
+        animation-duration: 2.8s !important;
+        animation-iteration-count: infinite !important;
+    }
+}
+
+/* =========================================================
+   DESKTOP / LARGE PC — CENTER LOCK + SECTION SCALE
+   Only affects Contact, Story and Footer.
+   Existing laptop + mobile design remains unchanged.
+========================================================= */
+@media (min-width: 1367px) {
+
+    :root {
+        /* Laptop reference = 1x, large desktop = up to 2x. */
+        --desktop-section-scale: clamp(
+            1,
+            calc(100vw / 1366px),
+            2
+        );
+    }
+
+    /* Keep the page itself locked to the viewport center. */
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* -------------------------
+       STORY
+    -------------------------- */
+    .story-section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        min-height: calc(1000px * var(--desktop-section-scale));
+        padding-top: calc(20px * var(--desktop-section-scale));
+        padding-bottom: calc(200px * var(--desktop-section-scale));
+    }
+
+    .story-top {
+        width: 100%;
+        max-width: calc(3250px * var(--desktop-section-scale));
+        margin-left: auto;
+        margin-right: auto;
+        gap: calc(65px * var(--desktop-section-scale));
+    }
+
+    .story-profile-image {
+        width: calc(280px * var(--desktop-section-scale));
+        height: calc(370px * var(--desktop-section-scale));
+        border-radius: calc(8px * var(--desktop-section-scale));
+    }
+
+    .story-info {
+        max-width: calc(580px * var(--desktop-section-scale));
+    }
+
+    .story-label {
+        gap: calc(8px * var(--desktop-section-scale));
+        font-size: calc(17px * var(--desktop-section-scale));
+        margin-bottom: calc(22px * var(--desktop-section-scale));
+    }
+
+    .story-label span {
+        width: calc(7px * var(--desktop-section-scale));
+        height: calc(7px * var(--desktop-section-scale));
+    }
+
+    .story-description {
+        font-size: calc(22px * var(--desktop-section-scale));
+        letter-spacing: calc(-0.3px * var(--desktop-section-scale));
+    }
+
+    .story-socials {
+        gap: calc(18px * var(--desktop-section-scale));
+        margin-top: calc(22px * var(--desktop-section-scale));
+    }
+
+    .story-socials svg {
+        width: calc(24px * var(--desktop-section-scale));
+        height: calc(24px * var(--desktop-section-scale));
+    }
+
+    .story-carousel {
+        height: calc(650px * var(--desktop-section-scale));
+        margin-top: calc(300px * var(--desktop-section-scale));
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .story-image {
+        width: calc(370px * var(--desktop-section-scale));
+        height: calc(600px * var(--desktop-section-scale));
+        border-radius: calc(8px * var(--desktop-section-scale));
+    }
+
+    .story-arrow {
+        width: calc(56px * var(--desktop-section-scale));
+        height: calc(48px * var(--desktop-section-scale));
+        font-size: calc(42px * var(--desktop-section-scale));
+    }
+
+    .story-prev {
+        left: calc(50% - (580px * var(--desktop-section-scale)));
+    }
+
+    .story-next {
+        right: calc(50% - (580px * var(--desktop-section-scale)));
+    }
+
+    /* -------------------------
+       CONTACT
+    -------------------------- */
+    .contact-section,
+    .contact-inner {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    .contact-section {
+        min-height: calc(720px * var(--desktop-section-scale));
+    }
+
+    .contact-inner {
+        min-height: calc(720px * var(--desktop-section-scale));
+        padding-top: calc(70px * var(--desktop-section-scale));
+        padding-bottom: calc(90px * var(--desktop-section-scale));
+        padding-left: calc(30px * var(--desktop-section-scale));
+        padding-right: calc(30px * var(--desktop-section-scale));
+    }
+
+    .contact-title {
+        font-size: calc(7.3vw * var(--desktop-section-scale));
+        letter-spacing: calc(-4px * var(--desktop-section-scale));
+    }
+
+    .contact-subtitle {
+        margin-top: calc(30px * var(--desktop-section-scale));
+        font-size: calc(18px * var(--desktop-section-scale));
+    }
+
+    .contact-button-wrap {
+        width: calc(500px * var(--desktop-section-scale));
+        height: calc(90px * var(--desktop-section-scale));
+        margin-top: calc(35px * var(--desktop-section-scale));
+        --contact-button-width: calc(220px * var(--desktop-section-scale));
+    }
+
+    .contact-button {
+        width: var(--contact-button-width);
+        height: calc(45px * var(--desktop-section-scale));
+        border-radius: calc(20px * var(--desktop-section-scale));
+        font-size: calc(20px * var(--desktop-section-scale));
+    }
+
+    .spinner-fixed {
+        width: calc(15px * var(--desktop-section-scale));
+        height: calc(15px * var(--desktop-section-scale));
+        left: calc(120px * var(--desktop-section-scale));
+    }
+
+    .spinner-fixed .contact-spinner {
+        width: calc(150px * var(--desktop-section-scale));
+        height: calc(150px * var(--desktop-section-scale));
+    }
+
+    .contact-star {
+        width: calc(145px * var(--desktop-section-scale));
+        height: calc(145px * var(--desktop-section-scale));
+        top: calc(125px * var(--desktop-section-scale));
+    }
+
+    /* -------------------------
+       FOOTER
+    -------------------------- */
+    .site-footer,
+    .footer-blue,
+    .footer-black {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    .footer-blue {
+        height: calc(370px * var(--desktop-section-scale));
+    }
+
+    .footer-content {
+        padding-top: calc(55px * var(--desktop-section-scale));
+        padding-bottom: calc(55px * var(--desktop-section-scale));
+    }
+
+    .footer-title {
+        font-size: calc(8vw * var(--desktop-section-scale));
+        letter-spacing: calc(-4px * var(--desktop-section-scale));
+    }
+
+    .footer-tagline {
+        margin-top: calc(28px * var(--desktop-section-scale));
+        font-size: calc(17px * var(--desktop-section-scale));
+    }
+
+    .footer-links {
+        bottom: calc(35px * var(--desktop-section-scale));
+        gap: calc(1px * var(--desktop-section-scale));
+    }
+
+    .footer-links a {
+        font-size: calc(14px * var(--desktop-section-scale));
+    }
+
+    .footer-phone {
+        width: calc(600px * var(--desktop-section-scale));
+        bottom: calc(-90px * var(--desktop-section-scale));
+    }
+
+    .footer-black {
+        min-height: calc(112px * var(--desktop-section-scale));
+        padding-top: calc(32px * var(--desktop-section-scale));
+        padding-bottom: calc(32px * var(--desktop-section-scale));
+        gap: calc(20px * var(--desktop-section-scale));
+    }
+
+    .footer-location,
+    .footer-middle,
+    .footer-social,
+    .footer-social a {
+        font-size: calc(9px * var(--desktop-section-scale));
+    }
+}
+
+/* =========================================================
+   LARGE PC — HERO + TV + BIG MESSAGE SCALE
+   Only these requested sections grow on desktop.
+   Existing TV / scroll animations are preserved.
+========================================================= */
+@media (min-width: 1367px) {
+    :root {
+        --pc-main-scale: clamp(1, calc(100vw / 1366px), 2);
+    }
+
+    /* =========================
+       FIRST PAGE / HERO
+       ========================= */
+    .hero {
+        min-height: calc(650px * var(--pc-main-scale));
+        padding-bottom: calc(40px * var(--pc-main-scale));
+    }
+
+    .board {
+        min-height: calc(450px * var(--pc-main-scale));
+        border-radius: calc(36px * var(--pc-main-scale));
+    }
+
+    /* Keep the hero artwork centered and scale it from the laptop reference. */
+    .hero .camera,
+    .hero .content-sticker,
+    .hero .search-icon,
+    .hero .book-sticker,
+    .hero .cloud-left,
+    .hero .cloud-right,
+    .hero .cloud-middle {
+        transform-origin: center center;
+    }
+
+    .hero .camera {
+        width: calc(430px * var(--pc-main-scale));
+        top: calc(-58px * var(--pc-main-scale));
+        left: calc(-55px * var(--pc-main-scale));
+    }
+
+    .hero .content-sticker {
+        width: calc(225px * var(--pc-main-scale));
+        top: calc(28px * var(--pc-main-scale));
+        right: calc(62px * var(--pc-main-scale));
+    }
+
+    .hero .search-icon {
+        width: calc(210px * var(--pc-main-scale));
+        left: calc(95px * var(--pc-main-scale));
+        bottom: calc(12px * var(--pc-main-scale));
+    }
+
+    .hero .book-sticker {
+        width: calc(430px * var(--pc-main-scale));
+        right: calc(-95px * var(--pc-main-scale));
+        bottom: calc(-155px * var(--pc-main-scale));
+    }
+
+    .hero .cloud-left {
+        width: calc(275px * var(--pc-main-scale));
+        left: calc(-58px * var(--pc-main-scale));
+        top: calc(118px * var(--pc-main-scale));
+    }
+
+    .hero .cloud-right {
+        width: calc(430px * var(--pc-main-scale));
+        right: calc(-140px * var(--pc-main-scale));
+        top: calc(-82px * var(--pc-main-scale));
+    }
+
+    .hero .cloud-middle {
+        width: calc(165px * var(--pc-main-scale));
+        left: calc(190px * var(--pc-main-scale));
+        bottom: calc(48px * var(--pc-main-scale));
+    }
+
+    .hero .hero-text {
+        width: calc(560px * var(--pc-main-scale));
+        font-size: calc(76px * var(--pc-main-scale));
+        letter-spacing: calc(-3.2px * var(--pc-main-scale));
+    }
+
+    .hero .start-project-link {
+        width: calc(285px * var(--pc-main-scale));
+        transform: translate(-50%, calc(-30px * var(--pc-main-scale)));
+    }
+
+    .hero .start-project-link .start-project {
+        width: 100%;
+        transform: none;
+    }
+
+    /* =========================
+       SECOND PAGE / TV
+       ========================= */
+    .tv-wrapper {
+        /* Scaling the wrapper leaves all existing TV scroll/animation timing intact. */
+        transform: scale(var(--pc-main-scale));
+        transform-origin: center center;
+    }
+
+    /* Keep the TV section itself centered; do not alter its animation/scroll behavior. */
+    .tv-stage {
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* =========================
+       BIG MESSAGE
+       ========================= */
+    .message-section {
+        min-height: calc(1200px * var(--pc-main-scale));
+        padding-top: calc(289px * var(--pc-main-scale));
+        padding-bottom: calc(100px * var(--pc-main-scale));
+    }
+
+    .message-content {
+        max-width: calc(1450px * var(--pc-main-scale));
+    }
+
+    .big-message {
+        font-size: calc(120px * var(--pc-main-scale));
+        letter-spacing: calc(-0.79px * var(--pc-main-scale));
+    }
+
+    .think {
+        top: calc(-20px * var(--pc-main-scale));
+        padding: calc(12px * var(--pc-main-scale)) calc(22px * var(--pc-main-scale));
+        font-size: calc(19px * var(--pc-main-scale));
+        border-radius: calc(11px * var(--pc-main-scale));
+    }
+
+    .make {
+        top: calc(100px * var(--pc-main-scale));
+        right: calc(260px * var(--pc-main-scale));
+        padding: calc(14px * var(--pc-main-scale)) calc(24px * var(--pc-main-scale));
+        font-size: calc(19px * var(--pc-main-scale));
+        border-radius: calc(11px * var(--pc-main-scale));
+    }
+
+    .grow {
+        bottom: calc(-25px * var(--pc-main-scale));
+        padding: calc(12px * var(--pc-main-scale)) calc(24px * var(--pc-main-scale));
+        font-size: calc(19px * var(--pc-main-scale));
+        border-radius: calc(11px * var(--pc-main-scale));
+    }
+}
+
+/* =========================================================
+   DESKTOP CENTER + TV SCROLL TRANSITION FIX
+   Keep the original TV scroll animation while applying the
+   desktop size multiplier. Nothing else is changed.
+========================================================= */
+@media (min-width: 1367px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .hero,
+    .board,
+    .tv-section,
+    .tv-stage,
+    .message-section,
+    .message-content,
+    .story-section,
+    .contact-section,
+    .contact-inner,
+    .site-footer,
+    .footer-blue,
+    .footer-black {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero,
+    .tv-section,
+    .message-section,
+    .story-section,
+    .contact-section,
+    .site-footer {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .board,
+    .message-content,
+    .story-top,
+    .contact-inner,
+    .footer-content {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* IMPORTANT: preserve the existing JS-driven TV transition.
+       The TV still grows from small -> large while scrolling. */
+    .tv-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        transform: scale(calc(var(--tv-scale, 1) * var(--pc-main-scale, 1)));
+        transform-origin: center center;
+    }
+}
+
+/* =========================================================
+   FINAL MOBILE-ONLY REQUESTED LAYOUT
+   ---------------------------------------------------------
+   Desktop / laptop design is NOT changed.
+   Page 1, Page 2, Page 3 and Aman Story remain as-is.
+   Only the requested mobile sections are adjusted here.
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* =====================================================
+       PAGE 4 — SERVICES / CREATIVE TOOLS
+       Four cards become a vertical stack:
+       1st -> 2nd -> 3rd -> 4th
+       Card size stays the same as the current mobile card.
+    ===================================================== */
+    .tools-section {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        padding-bottom: 70px !important;
+    }
+
+    .tools-cards {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 18px !important;
+        padding: 8px 0 0 !important;
+    }
+
+    .tool-card {
+        /* Keep the existing mobile card size. */
+        width: clamp(68px, 20vw, 88px) !important;
+        height: clamp(105px, 30vw, 132px) !important;
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Keep card rotations/visual identity; only position changes. */
+    .tool-card-blue,
+    .tool-card-green,
+    .tool-card-yellow,
+    .tool-card-blue-light {
+        transform-origin: center center !important;
+    }
+
+    /* Remove animation transform conflicts while stacked, but keep floating motion. */
+    .tools-section.tools-active .tool-card-blue,
+    .tools-section.tools-active .tool-card-green,
+    .tools-section.tools-active .tool-card-yellow,
+    .tools-section.tools-active .tool-card-blue-light {
+        animation-duration: 3.4s;
+    }
+
+    /* Slider comes after the 4th card, as before. */
+    .service-slider {
+        width: 100% !important;
+        margin-top: 55px !important;
+        padding-bottom: 90px !important;
+    }
+
+    /* =====================================================
+       AMAN'S STORY
+       Existing mobile layout remains unchanged.
+    ===================================================== */
+    .story-section {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    /* =====================================================
+       CONTACT PAGE — MOBILE ONLY
+       Full phone width, slightly taller than laptop reference.
+       Sizes are slightly reduced from laptop, not tiny/scaled
+       down by the old desktop multiplier.
+    ===================================================== */
+    .contact-section {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        min-height: 760px !important;
+        margin: 0 !important;
+    }
+
+    .contact-inner {
+        width: 100% !important;
+        min-height: 760px !important;
+        padding: 55px 20px 75px !important;
+        justify-content: center !important;
+    }
+
+    .contact-title {
+        width: 100% !important;
+        font-size: clamp(58px, 15vw, 92px) !important;
+        line-height: .84 !important;
+        letter-spacing: -3px !important;
+    }
+
+    .contact-subtitle {
+        margin-top: 24px !important;
+        font-size: 16px !important;
+        line-height: 1.35 !important;
+        max-width: 360px !important;
+    }
+
+    .contact-button-wrap {
+        width: 100% !important;
+        max-width: 500px !important;
+        height: 90px !important;
+        margin-top: 30px !important;
+        position: relative !important;
+    }
+
+    .contact-button {
+        width: 210px !important;
+        height: 44px !important;
+        border-radius: 20px !important;
+        font-size: 18px !important;
+    }
+
+    /* Spinner stays beside the button, with the same visual role
+       and only a little larger on mobile. */
+    .spinner-fixed {
+        width: 15px !important;
+        height: 15px !important;
+        left: calc(50% - 180px) !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .spinner-fixed .contact-spinner {
+        width: 165px !important;
+        height: 165px !important;
+    }
+
+    .contact-star {
+        width: 115px !important;
+        height: 115px !important;
+        top: 95px !important;
+        right: 7% !important;
+    }
+
+    /* =====================================================
+       FOOTER — BLUE AREA
+       Phone width exactly; height matches the mobile green
+       board feel (500px), with larger readable text + phone.
+    ===================================================== */
+    .site-footer,
+    .footer-blue,
+    .footer-black {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .footer-blue {
+        height: 500px !important;
+        min-height: 500px !important;
+    }
+
+    .footer-content {
+        height: 100% !important;
+        padding: 42px 7% 45px !important;
+    }
+
+    .footer-title {
+        font-size: clamp(54px, 14vw, 82px) !important;
+        line-height: .84 !important;
+        letter-spacing: -3px !important;
+    }
+
+    .footer-tagline {
+        margin-top: 22px !important;
+        font-size: 18px !important;
+        line-height: 1.25 !important;
+        max-width: 270px !important;
+    }
+
+    .footer-links {
+        left: 7% !important;
+        bottom: 28px !important;
+        gap: 2px !important;
+    }
+
+    .footer-links a {
+        font-size: 15px !important;
+        line-height: 1.2 !important;
+    }
+
+    /* Larger phone, still positioned on the right and extending
+       naturally below the blue area like the laptop design. */
+    .footer-phone {
+        width: 350px !important;
+        max-width: none !important;
+        right: -90px !important;
+        bottom: -75px !important;
+    }
+
+    .footer-black {
+        min-height: 125px !important;
+        padding: 30px 5% !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        text-align: center !important;
+    }
+
+    .footer-location,
+    .footer-middle,
+    .footer-social,
+    .footer-social a {
+        font-size: 11px !important;
+        justify-self: center !important;
+        align-items: center !important;
+    }
+}
+
+/* Very small phones: preserve the same requested structure. */
+@media (max-width: 420px) {
+
+    .tools-cards {
+        gap: 16px !important;
+    }
+
+    .tool-card {
+        width: clamp(64px, 19vw, 78px) !important;
+        height: clamp(98px, 29vw, 116px) !important;
+    }
+
+    .contact-section,
+    .contact-inner {
+        min-height: 740px !important;
+    }
+
+    .contact-title {
+        font-size: clamp(54px, 15vw, 78px) !important;
+    }
+
+    .spinner-fixed {
+        left: calc(50% - 165px) !important;
+    }
+
+    .spinner-fixed .contact-spinner {
+        width: 150px !important;
+        height: 150px !important;
+    }
+
+    .footer-blue {
+        height: 500px !important;
+        min-height: 500px !important;
+    }
+
+    .footer-phone {
+        width: 320px !important;
+        right: -82px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — FINAL USER ALIGNMENT UPDATE
+   ONLY MOBILE IS CHANGED. DESKTOP/LAPTOP IS UNTOUCHED.
+========================================================= */
+@media (max-width: 600px) {
+
+    /* PAGE 4 — keep the card stack exactly as-is.
+       Move the decorative star to the right corner of card 3. */
+    .creative-star {
+        width: 58px !important;
+        height: auto !important;
+        left: calc(50% + 34px) !important;
+        right: auto !important;
+        top: 410px !important;
+        z-index: 5 !important;
+        transform: rotate(8deg) !important;
+    }
+
+    /* Move service slides a little lower. */
+    .service-slider {
+        margin-top: 80px !important;
+    }
+
+    /* CONTACT — smaller spinner, positioned just to the
+       left/above the button instead of too far left. */
+    .spinner-fixed {
+        width: 12px !important;
+        height: 12px !important;
+        left: calc(50% - 125px) !important;
+        top: 43% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .spinner-fixed .contact-spinner {
+        width: 112px !important;
+        height: 112px !important;
+    }
+
+    /* FOOTER — blue area slightly taller. */
+    .footer-blue {
+        height: 530px !important;
+        min-height: 530px !important;
+    }
+
+    .footer-content {
+        height: 100% !important;
+    }
+
+    /* Keep the bottom three statements in the same
+       three-column arrangement as laptop. */
+    .footer-black {
+        min-height: 125px !important;
+        padding: 30px 5% !important;
+        grid-template-columns: 1fr 2fr 1fr !important;
+        gap: 0 !important;
+        text-align: left !important;
+    }
+
+    .footer-location,
+    .footer-middle,
+    .footer-social {
+        font-size: 11px !important;
+        justify-self: initial !important;
+        align-items: initial !important;
+    }
+
+    .footer-middle {
+        justify-self: center !important;
+    }
+
+    .footer-social {
+        justify-self: end !important;
+    }
+
+    .footer-social a {
+        font-size: 11px !important;
+    }
+
+    /* Phone: larger and protrudes from the right like laptop. */
+    .footer-phone {
+        width: 390px !important;
+        max-width: none !important;
+        right: -100px !important;
+        bottom: -90px !important;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .creative-star {
+        width: 52px !important;
+        left: calc(50% + 31px) !important;
+        top: 395px !important;
+    }
+
+    .service-slider {
+        margin-top: 125px !important;
+    }
+
+    .spinner-fixed {
+        left: calc(50% - 118px) !important;
+        top: 43% !important;
+    }
+
+    .spinner-fixed .contact-spinner {
+        width: 105px !important;
+        height: 105px !important;
+    }
+
+    .footer-blue {
+        height: 530px !important;
+        min-height: 530px !important;
+    }
+
+    .footer-phone {
+        width: 365px !important;
+        right: -94px !important;
+        bottom: -90px !important;
+    }
+
+    .footer-black {
+        grid-template-columns: 1fr 2fr 1fr !important;
+        padding-left: 4% !important;
+        padding-right: 4% !important;
+    }
+
+    .footer-location,
+    .footer-middle,
+    .footer-social,
+    .footer-social a {
+        font-size: 10px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE — LATEST SMALL POSITION / FOOTER TWEAKS
+   Desktop and laptop layouts are not changed.
+========================================================= */
+@media (max-width: 600px) {
+    /* Move the decorative star slightly left and lower onto card 3. */
+    .creative-star {
+        left: calc(50% + 22px) !important;
+        right: auto !important;
+        top: 425px !important;
+    }
+
+    /* Spinner: only a small move to the right. Keep its current size. */
+    .spinner-fixed {
+        left: calc(50% - 108px) !important;
+    }
+
+    /* Make the blue footer phone noticeably larger and shift it left. */
+    .footer-phone {
+        width: 450px !important;
+        max-width: none !important;
+        right: -65px !important;
+        bottom: -90px !important;
+    }
+
+    /* Put the three footer statements at the bottom edge.
+       Remove the extra blank space underneath them. */
+    .footer-black {
+        min-height: 92px !important;
+        padding: 8px 4% 6px !important;
+        align-items: end !important;
+        grid-template-columns: 1fr 2fr 1fr !important;
+        gap: 0 !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .creative-star {
+        left: calc(50% + 18px) !important;
+        top: 410px !important;
+    }
+
+    .spinner-fixed {
+        left: calc(50% - 108px) !important;
+    }
+
+    .footer-phone {
+        width: 425px !important;
+        right: -58px !important;
+        bottom: -90px !important;
+    }
+
+    .footer-black {
+        min-height: 84px !important;
+        padding: 6px 3% 5px !important;
+        align-items: end !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE FINAL TWEAKS — star, spinner and footer spacing
+========================================================= */
+@media (max-width: 600px) {
+    /* Actual decorative star on the cards: slightly left and lower,
+       aligned over the yellow third card. */
+    .creative-star {
+        left: calc(50% + 12px) !important;
+        right: auto !important;
+        top: 425px !important;
+    }
+
+    /* Spinner: only a small nudge to the right. */
+    .spinner-fixed {
+        left: calc(50% - 112px) !important;
+    }
+
+    /* Phone is considerably larger and shifted further left. */
+    .footer-phone {
+        width: 465px !important;
+        right: 5px !important;
+        bottom: -82px !important;
+    }
+
+    /* Give the blue panel the space removed from the black strip.
+       Keep the three footer details in three columns at the bottom. */
+    .footer-blue {
+        height: 610px !important;
+        min-height: 610px !important;
+    }
+
+    .footer-black {
+        min-height: 82px !important;
+        padding: 10px 4% 8px !important;
+        grid-template-columns: 1fr 2fr 1fr !important;
+        align-items: end !important;
+        gap: 0 !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .creative-star {
+        left: calc(50% + 8px) !important;
+        top: 410px !important;
+    }
+
+    .spinner-fixed {
+        left: calc(50% - 105px) !important;
+    }
+
+    .footer-phone {
+        width: 435px !important;
+        right: 8px !important;
+        bottom: -78px !important;
+    }
+
+    .footer-blue {
+        height: 600px !important;
+        min-height: 600px !important;
+    }
+
+    .footer-black {
+        min-height: 82px !important;
+        padding: 10px 3% 8px !important;
+        grid-template-columns: 1fr 2fr 1fr !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE FOOTER PHONE — right aligned, larger, less off-screen
+========================================================= */
+@media (max-width: 600px) {
+    .footer-phone {
+        width: 500px !important;
+        right: -5px !important;
+        left: auto !important;
+        bottom: -82px !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .footer-phone {
+        width: 465px !important;
+        right: -5px !important;
+        left: auto !important;
+        bottom: -78px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE LATEST TWEAK — star + footer phone
+========================================================= */
+@media (max-width: 600px) {
+    /* Star: lower, sitting over the upper-right corner of the
+       yellow third card. */
+    .creative-star {
+        width: 150px !important;
+        left: calc(50% + -4px) !important;
+        right: auto !important;
+        top: 915px !important;
+        transform: rotate(8deg) !important;
+    }
+
+    /* Footer phone: slightly larger, still on the right,
+       but pulled into the screen a little. */
+    .footer-phone {
+        width: 525px !important;
+        right: -53px !important;
+        left: auto !important;
+        bottom: -82px !important;
+        transform: rotate(10deg) !important;
+        transform-origin: center center !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .creative-star {
+        left: calc(50% + -7px) !important;
+        top: 810px !important;
+    }
+
+    .footer-phone {
+        width: 490px !important;
+        right: -53px !important;
+        bottom: -78px !important;
+        transform: rotate(10deg) !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE LATEST REQUEST — card size + footer typography
+   All previous mobile positioning remains unchanged.
+========================================================= */
+@media (max-width: 600px) {
+    /* Keep the same vertical positions, only make the cards about 2x larger. */
+    .tool-card {
+        width: clamp(136px, 40vw, 176px) !important;
+        height: clamp(210px, 60vw, 264px) !important;
+    }
+
+    /* Slightly larger blue-footer heading. */
+    .footer-title {
+        font-size: clamp(60px, 15.5vw, 90px) !important;
+    }
+
+    /* Keep the three bottom columns visually balanced. */
+    .footer-location,
+    .footer-social,
+    .footer-social a {
+        font-size: 11px !important;
+    }
+
+    /* Middle column has more text, so make it slightly smaller. */
+    .footer-middle {
+        font-size: 9px !important;
+    }
+
+    .footer-middle a {
+        font-size: 9px !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .tool-card {
+        width: clamp(128px, 38vw, 156px) !important;
+        height: clamp(196px, 58vw, 232px) !important;
+    }
+
+    .footer-title {
+        font-size: clamp(88px, 9.5vw, 99px) !important;
+    }
+
+    .footer-location,
+    .footer-social,
+    .footer-social a {
+        font-size: 10px !important;
+    }
+
+    .footer-middle,
+    .footer-middle a {
+        font-size: 6.5px !important;
+    }
+}
+/* =========================================================
+   MOBILE — TOOL CARD SERVICE NAMES
+   ONLY TEXT SIZE — NOTHING ELSE CHANGED
+========================================================= */
+
+@media (max-width: 600px) {
+    .tool-card-bottom {
+        font-size: 25px !important;
+        line-height: 0.95 !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .tool-card-bottom {
+        font-size: 25px !important;
+        line-height: 0.95 !important;
+    }
+}
+/* =========================================================
+   MOBILE — NAVBAR SIZE ONLY
+   Navbar is larger on phones; the rest of the design is untouched.
+   The increased navbar height naturally reduces the green hero
+   area slightly from the top.
+========================================================= */
+@media (max-width: 600px) {
+    .navbar {
+        height: 56px !important;
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+
+    .logo img {
+        width: 105px !important;
+    }
+
+    .nav-links {
+        gap: 14px !important;
+    }
+
+    .nav-links a {
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar {
+        height: 54px !important;
+    }
+
+    .logo img {
+        width: 100px !important;
+    }
+
+    .nav-links {
+        gap: 11px !important;
+    }
+
+    .nav-links a {
+        font-size: 12px !important;
+    }
+}
+.footer-blue::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -8px;
+        height: 12px;
+        pointer-events: none;
+        z-index: 10;
+        background:
+            linear-gradient(
+                135deg,
+                transparent 5px,
+                #000 5px,
+                #000 10px,
+                transparent 10px
+            ) repeat-x;
+        background-size: 12px 12px;
+    }
+
+
+/* =========================================================
+   AMAN'S STORY ARROWS — BOLD + VISUALLY CENTERED
+   ONLY THE ARROW GLYPH IS ADJUSTED.
+   OVAL SIZE AND POSITION ARE NOT CHANGED.
+========================================================= */
+
+.story-arrow {
+    font-weight: 700 !important;
+    padding: 2px 0 0 0 !important;
+    text-shadow:
+        0.5px 0 currentColor,
+        -0.5px 0 currentColor !important;
+    box-sizing: border-box !important;
+}
+
+
+/* Move ONLY the arrow glyphs outward inside their existing ovals.
+   The oval position and size remain unchanged. */
+.story-prev {
+    padding-left: -1px !important;
+}
+
+.story-next {
+    padding-right: -0.13px !important;
+}
+/* =========================================================
+   PC RESPONSIVE — BLUE FOOTER PHONE
+   Move the phone slightly to the RIGHT on PC screens only.
+   ========================================================= */
+
+@media (min-width: 1101px) and (max-width: 1366px) {
+    .footer-phone {
+        right: -70px !important;
+        left: auto !important;
+    }
+}
+
+@media (min-width: 1367px) {
+    .footer-phone {
+        right: calc(-150px * var(--social-pc-scale, 1)) !important;
+        left: auto !important;
+    }
+}
+/* =========================================================
+   IPAD / TABLET — COMPLETE WEBSITE CENTER
+   iPad Mini / Air / Pro
+   Desktop & Mobile remain unchanged
+========================================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    /* Every main page section stays centered */
+    .hero,
+    .tv-section,
+    .message-section,
+    .tools-section,
+    .story-section,
+    .contact-section,
+    .site-footer,
+    .footer-blue,
+    .footer-black {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box;
+    }
+
+    /* Main content inside each page */
+    .board,
+    .tv-stage,
+    .tv-wrapper,
+    .message-content,
+    .tools-wrapper,
+    .story-top,
+    .story-carousel,
+    .contact-inner,
+    .footer-content {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Flex content must use the full tablet width */
+    .tv-stage,
+    .tools-cards {
+        display: flex;
+        justify-content: center !important;
+        align-items: center;
+    }
+
+    /* Keep tablet artwork centered */
+    .tv-wrapper {
+        transform-origin: center center;
+    }
+
+    /* Story carousel centered */
+    .story-carousel {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Footer content centered */
+    .footer-content {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* =========================================================
+   STORY CAROUSEL — RESPONSIVE ARROWS CENTER FIX
+   Laptop/Desktop design remains unchanged.
+   On phones, tablets and iPads, both oval arrows stay
+   exactly vertically centered on the carousel.
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .story-carousel {
+        position: relative !important;
+    }
+
+    .story-arrow {
+        position: absolute !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+        box-sizing: border-box !important;
+        border-radius: 50% !important;
+    }
+
+    .story-prev {
+        left: 3px !important;
+        right: auto !important;
+    }
+
+    .story-next {
+        right: 3px !important;
+        left: auto !important;
+    }
+}
+
+/* Phones — keep the oval and arrow perfectly centered */
+@media (max-width: 600px) {
+
+    .story-arrow {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .story-prev {
+        left: 3px !important;
+    }
+
+    .story-next {
+        right: 3px !important;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+
+    .story-arrow {
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    .story-prev {
+        left: 3px !important;
+    }
+
+    .story-next {
+        right: 3px !important;
+    }
+}
+
+/* =========================================================
+   MOBILE ONLY — SERVICE SLIDES MOVEMENT FIX
+   Laptop movement stays exactly as-is.
+   Only phone/tablet-small slider movement is restored.
+========================================================= */
+@media (max-width: 600px) {
+    .service-track {
+        animation: serviceSlideMove 22s linear infinite !important;
+        animation-play-state: running !important;
+        will-change: transform !important;
+    }
+
+    /* Phones can keep :hover active after a touch; never let that
+       pause the continuous slider on mobile. */
+    .service-slider:hover .service-track {
+        animation-play-state: running !important;
+    }
+}
+/* =========================================================
+   TV VIDEO — FAST LOADING / RESPONSIVE PERFORMANCE
+   DO NOT REMOVE EXISTING TV CSS
+========================================================= */
+
+.tv-video {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    /* Keep video rendering lightweight */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    /* Browser GPU optimization */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+
+    /* Prevent unnecessary interaction overhead */
+    pointer-events: none;
+
+    /* Keep responsive TV proportions */
+    max-width: 100%;
+}
+
+/* PHONE */
+@media (max-width: 768px) {
+    .tv-video {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+}
+
+/* TABLET */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .tv-video {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+}
+
+/* LAPTOP + DESKTOP */
+@media (min-width: 1101px) {
+    .tv-video {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+}
+/* =========================================================
+   FINAL RESPONSIVE REQUEST — PC / iPAD / PHONE ONLY
+   Laptop reference (1101px–1366px) is intentionally untouched.
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   NAVBAR — PC / iPAD / PHONE
+   Other pages: navbar appears when cursor reaches top edge.
+   It stays transparent so the page remains visible underneath.
+--------------------------------------------------------- */
+@media (max-width: 1100px), (min-width: 1367px) {
+    .navbar {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .navbar.navbar-hidden {
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .navbar:not(.navbar-hidden) {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   TOOL CARDS — continuous movement on PC / iPad / phone
+   No hover is required. Laptop remains exactly as before.
+--------------------------------------------------------- */
+@media (max-width: 1100px), (min-width: 1367px) {
+    .tools-section .tool-card-blue {
+        animation: cardBlueFloatResponsive 3.2s ease-in-out infinite !important;
+    }
+
+    .tools-section .tool-card-green {
+        animation: cardGreenFloatResponsive 3.4s ease-in-out infinite !important;
+        animation-delay: -0.7s !important;
+    }
+
+    .tools-section .tool-card-yellow {
+        animation: cardYellowFloatResponsive 3.3s ease-in-out infinite !important;
+        animation-delay: -1.2s !important;
+    }
+
+    .tools-section .tool-card-blue-light {
+        animation: cardLightBlueFloatResponsive 3.5s ease-in-out infinite !important;
+        animation-delay: -1.8s !important;
+    }
+
+    .tools-section .tool-card:hover {
+        animation-play-state: running !important;
+    }
+
+    @keyframes cardBlueFloatResponsive {
+        0%, 100% { transform: rotate(6deg) translateX(0) translateY(15px); }
+        50%      { transform: rotate(4.5deg) translateX(-4px) translateY(11px); }
+    }
+
+    @keyframes cardGreenFloatResponsive {
+        0%, 100% { transform: rotate(-6deg) translateX(0) translateY(8px); }
+        50%      { transform: rotate(-4.5deg) translateX(3px) translateY(5px); }
+    }
+
+    @keyframes cardYellowFloatResponsive {
+        0%, 100% { transform: rotate(6deg) translateX(0) translateY(15px); }
+        50%      { transform: rotate(4.5deg) translateX(-4px) translateY(11px); }
+    }
+
+    @keyframes cardLightBlueFloatResponsive {
+        0%, 100% { transform: rotate(-6deg) translateX(0) translateY(8px); }
+        50%      { transform: rotate(-4.5deg) translateX(3px) translateY(5px); }
+    }
+}
+
+/* ---------------------------------------------------------
+   SERVICE SLIDES — continuous movement
+   PC: 2 cards visible
+   iPad: 3 cards visible
+   Phone: 3 cards visible
+--------------------------------------------------------- */
+@media (min-width: 1367px) {
+    .service-slider {
+        overflow: hidden !important;
+    }
+
+    .service-track {
+        animation: serviceSlideMove 22s linear infinite !important;
+        animation-play-state: running !important;
+        gap: 24px !important;
+    }
+
+    .service-slide {
+        width: calc((100vw - 120px) / 2) !important;
+        max-width: 520px !important;
+        min-width: 420px !important;
+    }
+
+    .service-slider:hover .service-track {
+        animation-play-state: running !important;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+    .service-slider {
+        overflow: hidden !important;
+    }
+
+    .service-track {
+        animation: serviceSlideMove 22s linear infinite !important;
+        animation-play-state: running !important;
+        gap: 14px !important;
+    }
+
+    .service-slide {
+        width: calc((100vw - 70px) / 3) !important;
+        min-width: 0 !important;
+        height: 330px !important;
+        padding: 24px !important;
+    }
+
+    .service-slider:hover .service-track {
+        animation-play-state: running !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .service-slider {
+        overflow: hidden !important;
+    }
+
+    .service-track {
+        animation: serviceSlideMove 22s linear infinite !important;
+        animation-play-state: running !important;
+        gap: 8px !important;
+    }
+
+    .service-slide {
+        width: calc((100vw - 34px) / 3) !important;
+        min-width: 0 !important;
+        height: 245px !important;
+        padding: 16px !important;
+        border-radius: 24px 12px 24px 12px / 18px 12px 22px 12px !important;
+    }
+
+    .service-slide h3 {
+        font-size: clamp(17px, 5vw, 25px) !important;
+        letter-spacing: -0.8px !important;
+    }
+
+    .service-slide p {
+        font-size: clamp(10px, 2.8vw, 14px) !important;
+        max-width: 100% !important;
+    }
+
+    .service-slider:hover .service-track {
+        animation-play-state: running !important;
+    }
+}
+
+/* ---------------------------------------------------------
+   PC FIRST PAGE ONLY
+   Green board: slightly lower for navbar breathing room and
+   slightly longer vertically. Footer blue area also slightly
+   taller; "See you around." is kept smaller than the oversized
+   large-PC title rules elsewhere.
+--------------------------------------------------------- */
+@media (min-width: 1367px) {
+    .hero {
+        padding-top: 18px !important;
+    }
+
+    .board {
+        height: 88% !important;
+        min-height: calc(450px * var(--pc-main-scale, 1)) !important;
+    }
+
+    .footer-blue {
+        height: 410px !important;
+        min-height: 410px !important;
+    }
+
+    .footer-title {
+        font-size: clamp(86px, 7vw, 108px) !important;
+        letter-spacing: -3px !important;
+    }
+}
+
+/* ---------------------------------------------------------
+   iPAD / PHONE HERO: keep board safely below the transparent
+   navbar while retaining the existing artwork proportions.
+--------------------------------------------------------- */
+@media (min-width: 601px) and (max-width: 1100px) {
+    .hero {
+        padding-top: 14px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding-top: 10px !important;
+    }
+}
+/* =========================================================
+   PC ONLY — BIGGER TOOL CARDS + STAR ON 3RD CARD
+   Laptop / iPad / Phone unchanged
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    /* TOOL CARDS — PC par bigger */
+    .tool-card {
+        width: 285px !important;
+        height: 440px !important;
+    }
+
+    .tool-card-image {
+        top: 8px !important;
+        left: 8px !important;
+        right: 8px !important;
+        width: calc(100% - 16px) !important;
+    }
+
+    /* STAR — third/yellow card ke right-bottom area */
+    .creative-star {
+        width: 350px !important;
+        height: auto !important;
+
+        right: auto !important;
+        left: calc(50% + 140px) !important;
+
+        top: 555px !important;
+
+        z-index: 20 !important;
+        transform: rotate(8deg) !important;
+    }
+}
+/* =========================================================
+   PC ONLY — SERVICE SLIDES
+   2 slides visible + slides slightly lower
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    .service-slider {
+        margin-top: 150px !important;
+        overflow: hidden !important;
+    }
+
+    .service-track {
+        gap: 24px !important;
+    }
+
+    .service-slide {
+        width: calc((100vw - 120px) / 2) !important;
+        max-width: 520px !important;
+        min-width: 420px !important;
+        height: 400px !important;
+        flex-shrink: 0 !important;
+    }
+}
+/* =========================================================
+   FINAL REQUEST — PC / IPAD / PHONE
+   LAPTOP (1101px–1366px) UNTOUCHED
+   CONTACT PAGE UNTOUCHED
+========================================================= */
+
+
+/* =========================================================
+   1. NAVBAR — PC / IPAD / PHONE
+========================================================= */
+
+@media (max-width: 1100px), (min-width: 1367px) {
+
+    .navbar {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+
+    .navbar.navbar-hidden {
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .navbar:not(.navbar-hidden) {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+}
+
+
+/* =========================================================
+   2. GREEN BOARD
+   WIDTH SAME — ONLY BOTTOM HEIGHT INCREASE
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    .hero {
+        padding-top: 18px !important;
+    }
+
+    .board {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .board {
+        width: 100% !important;
+        height: 90% !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .board {
+        width: 100% !important;
+        height: 90% !important;
+    }
+}
+
+
+
+/* =========================================================
+   4. TOOL CARDS
+   Continuous movement
+   PC / iPAD / PHONE
+========================================================= */
+
+@media (max-width: 1100px), (min-width: 1367px) {
+ .tools-cards{
+   margin-top: 60px !important;
+ }
+
+    .tools-section .tool-card-blue {
+        animation: finalCardBlueFloat 3.2s ease-in-out infinite !important;
+    }
+
+    .tools-section .tool-card-green {
+        animation: finalCardGreenFloat 3.4s ease-in-out infinite !important;
+        animation-delay: -.7s !important;
+    }
+
+    .tools-section .tool-card-yellow {
+        animation: finalCardYellowFloat 3.3s ease-in-out infinite !important;
+        animation-delay: -1.2s !important;
+    }
+
+    .tools-section .tool-card-blue-light {
+        animation: finalCardLightBlueFloat 3.5s ease-in-out infinite !important;
+        animation-delay: -1.8s !important;
+    }
+
+    @keyframes finalCardBlueFloat {
+        0%,100% {
+            transform: rotate(2deg) translateY(5px);
+        }
+        50% {
+            transform: rotate(1deg) translateY(0);
+        }
+    }
+
+    @keyframes finalCardGreenFloat {
+        0%,100% {
+            transform: rotate(-6deg) translateY(8px);
+        }
+        50% {
+            transform: rotate(-4deg) translateY(3px);
+        }
+    }
+
+    @keyframes finalCardYellowFloat {
+        0%,100% {
+            transform: rotate(6deg) translateY(15px);
+        }
+        50% {
+            transform: rotate(4deg) translateY(9px);
+        }
+    }
+
+    @keyframes finalCardLightBlueFloat {
+        0%,100% {
+            transform: rotate(-6deg) translateY(8px);
+        }
+        50% {
+            transform: rotate(-4deg) translateY(3px);
+        }
+    }
+}
+
+
+/* =========================================================
+   5. SERVICE SLIDER
+   PC = 2
+   iPAD = 3
+   PHONE = 3
+========================================================= */
+
+
+/* ---------- PC ---------- */
+
+@media (min-width: 1367px) {
+
+
+    .service-slider {
+        margin-top: 390px !important;
+        overflow: hidden !important;
+    }
+
+    .service-track {
+        display: flex !important;
+        gap: 27px !important;
+        animation: serviceSlideMove 22s linear infinite !important;
+        animation-play-state: running !important;
+    }
+
+    .service-slide {
+        width: calc((100vw - 160px) / 2) !important;
+        max-width: 800px !important;
+        min-width: 0 !important;
+        height: 850px !important;
+        flex: 0 0 calc((100vw - 120px) / 2) !important;
+      
+    }
+}
+
+
+/* ---------- iPAD ---------- */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .service-slider {
+        margin-top: 110px !important;
+        overflow: hidden !important;
+    }
+
+    .service-track {
+        display: flex !important;
+        gap: 14px !important;
+        animation: serviceSlideMove 22s linear infinite !important;
+        animation-play-state: running !important;
+    }
+
+    .service-slide {
+        width: calc((100vw - 70px) / 3) !important;
+        min-width: 0 !important;
+        flex: 0 0 calc((100vw - 70px) / 3) !important;
+        height: 330px !important;
+    }
+}
+
+
+/* ---------- PHONE ---------- */
+
+@media (max-width: 600px) {
+
+    .service-slider {
+        margin-top: 150px !important;
+        overflow: hidden !important;
+    }
+
+    .service-track {
+        display: flex !important;
+        gap: 8px !important;
+        animation: serviceSlideMove 22s linear infinite !important;
+        animation-play-state: running !important;
+    }
+
+    .service-slide {
+        width: calc((100vw - 34px) / 3) !important;
+        min-width: 200px !important;
+        flex: 0 0 calc((100vw - 34px) / 3) !important;
+        height: 235px !important;
+        padding: 16px !important;
+    }
+
+    .service-slide h3 {
+        font-size: clamp(15px, 4.5vw, 22px) !important;
+    }
+
+    .service-slide p {
+        font-size: clamp(9px, 2.7vw, 13px) !important;
+    }
+}
+/* =========================================================
+   SERVICE SLIDER — BIGGER CONTENT ON PC
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    .service-slide h3 {
+        font-size: 74px !important;
+        line-height: 1.05 !important;
+    }
+
+    .service-slide p {
+        font-size: 25px !important;
+        line-height: 1.5 !important;
+    }
+
+    .service-slide {
+        padding: 35px !important;
+    }
+}
+
+
+/* =========================================================
+   iPAD
+========================================================= */
+
+@media (min-width: 601px) and (max-width: 1100px) {
+
+    .service-slide h3 {
+        font-size: 28px !important;
+        line-height: 1.08 !important;
+    }
+
+    .service-slide p {
+        font-size: 16px !important;
+        line-height: 1.45 !important;
+    }
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .service-slide h3 {
+        font-size: 19px !important;
+        line-height: 1.05 !important;
+    }
+
+    .service-slide p {
+        font-size: 11px !important;
+        line-height: 1.35 !important;
+    }
+}
+
+/* =========================================================
+   6. PC TOOL CARDS — BIGGER
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    .tool-card {
+        width: 285px !important;
+        height: 440px !important;
+    }
+
+    .tool-card-image {
+        top: 8px !important;
+        left: 8px !important;
+        right: 8px !important;
+        width: calc(100% - 16px) !important;
+    }
+}
+
+
+/* =========================================================
+   7. PC BLUE FOOTER
+   Laptop reference:
+   370px
+   PC:
+   740px = 2x
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    .home-page .footer-blue {
+        height: 1140px !important;
+        min-height: 440px !important;
+    }
+
+    .home-page .footer-content {
+        padding-top: 110px !important;
+        padding-bottom: 110px !important;
+    }
+
+    /* Content size 2x laptop */
+
+    .home-page .footer-title {
+        font-size: calc(16vw) !important;
+        letter-spacing: -6px !important;
+    }
+
+    .home-page .footer-tagline {
+        margin-top: 56px !important;
+        font-size: 34px !important;
+    }
+
+    .home-page .footer-links {
+        bottom: 70px !important;
+    }
+
+    .home-page .footer-links a {
+        font-size: 28px !important;
+    }
+
+    /* Phone stays in same general position,
+       only scales with footer */
+
+    .home-page .footer-phone {
+        width: 1200px !important;
+        right: -200px !important;
+        bottom: -180px !important;
+    }
+
+    /* Black strip also scales */
+
+    .home-page .footer-black {
+        min-height: 224px !important;
+        padding-top: 64px !important;
+        padding-bottom: 64px !important;
+        gap: 40px !important;
+    }
+
+    .home-page .footer-location,
+    .home-page .footer-middle,
+    .home-page .footer-social,
+    .home-page .footer-social a {
+        font-size: 18px !important;
+    }
+}
+
+
+/* =========================================================
+   8. PC FOOTER CONTENT POSITION
+   Same placement — only larger
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    .home-page .footer-content {
+        position: relative !important;
+        display: block !important;
+    }
+
+    .home-page .footer-title,
+    .home-page .footer-tagline {
+        position: relative !important;
+    }
+}
+
+
+/* =========================================================
+   9. CLOUD MOVEMENT
+========================================================= */
+
+@media(min-width: 1367px) {
+
+    .hero .cloud-left {
+        animation: finalCloudLeft 13s ease-in-out infinite alternate !important;
+    }
+
+    .hero .cloud-right {
+        animation: finalCloudRight 13s ease-in-out infinite alternate !important;
+    }
+
+    .hero .cloud-middle {
+        animation: finalCloudMiddle 4.5s ease-in-out infinite alternate !important;
+    }
+
+    @keyframes finalCloudLeft {
+        from {
+            transform: translate(0,0);
+        }
+        to {
+            transform: translate(-85px,-5px);
+        }
+    }
+
+    @keyframes finalCloudRight {
+        from {
+            transform: translate(0,0);
+        }
+        to {
+            transform: translate(128px,8px);
+        }
+    }
+
+    @keyframes finalCloudMiddle {
+        from {
+            transform: translate(0,0);
+        }
+        to {
+            transform: translate(22px,-8px);
+        }
+    }
+}
+@media (max-width:1100px), (min-width:1367px) {
+
+    .tv-waves {
+        animation: tvWavesFloat 4s ease-in-out infinite alternate !important;
+    }
+
+    @keyframes tvWavesFloat {
+        0% {
+            transform: translateY(0) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-8px) rotate(1deg);
+        }
+
+        100% {
+            transform: translateY(4px) rotate(-1deg);
+        }
+    }
+
+}
+/* =========================================================
+   PERFORMANCE BOOST — DOES NOT CHANGE DESIGN
+   ========================================================= */
+
+
+
+/* Animations ko smoother rendering */
+.tv-wrapper,
+.tv-video,
+.tv-image {
+    will-change: transform;
+}
+
+/* Heavy effects ko browser GPU par handle karne mein help */
+.tv-wrapper {
+    contain: layout paint;
+}
+
+/* Off-screen sections ki rendering optimize */
+.message-section,
+.tools-section,
+.story-section,
+.contact-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+}
+
+/* Reduce unnecessary rendering work */
+.service-slider,
+.story-carousel {
+    contain: layout paint;
+}
+
+/* User agar reduced motion choose kare to animations unnecessary load na karein */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+/* =========================================================
+   TV SOUND WAVE — SAME MOVEMENT ON ALL DEVICES
+   Does NOT change TV size or position
+========================================================= */
+
+.tv-sound-wave,
+.tv-sound-wave::before,
+.tv-sound-wave::after {
+    animation-play-state: running !important;
+    animation-iteration-count: infinite !important;
+    animation-timing-function: ease-out !important;
+}
+
+/* PC + Laptop */
+@media (min-width: 1101px) {
+    .tv-sound-wave {
+        animation-duration: 1.4s !important;
+    }
+
+    .tv-sound-wave::before {
+        animation-duration: 1.4s !important;
+    }
+
+    .tv-sound-wave::after {
+        animation-duration: 1.4s !important;
+    }
+}
+
+/* Tablet + iPad */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .tv-sound-wave {
+        animation-duration: 1.4s !important;
+    }
+
+    .tv-sound-wave::before {
+        animation-duration: 1.4s !important;
+    }
+
+    .tv-sound-wave::after {
+        animation-duration: 1.4s !important;
+    }
+}
+
+/* Phone */
+@media (max-width: 768px) {
+    .tv-sound-wave {
+        animation-duration: 1.4s !important;
+    }
+
+    .tv-sound-wave::before {
+        animation-duration: 1.4s !important;
+    }
+
+    .tv-sound-wave::after {
+        animation-duration: 1.4s !important;
+    }
+}
+/* =========================================================
+   CLOUDS — SAME SLIGHT MOVEMENT ON ALL DEVICES
+   Keeps existing cloud positions unchanged
+========================================================= */
+
+.cloud-left,
+.cloud-right,
+.cloud-middle {
+    animation-play-state: running !important;
+    animation-iteration-count: infinite !important;
+    animation-timing-function: ease-in-out !important;
+    animation-direction: alternate !important;
+}
+
+/* PC + Laptop */
+@media (min-width: 1101px) {
+    .cloud-left {
+        animation-duration: 6s !important;
+    }
+
+    .cloud-right {
+        animation-duration: 6s !important;
+    }
+
+    .cloud-middle {
+        animation-duration: 5.5s !important;
+    }
+}
+
+/* iPad + Tablet */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .cloud-left {
+        animation-duration: 6s !important;
+    }
+
+    .cloud-right {
+        animation-duration: 6s !important;
+    }
+
+    .cloud-middle {
+        animation-duration: 5.5s !important;
+    }
+}
+
+/* Phone */
+@media (max-width: 768px) {
+    .cloud-left {
+        animation-duration: 6s !important;
+    }
+
+    .cloud-right {
+        animation-duration: 6s !important;
+    }
+
+    .cloud-middle {
+        animation-duration: 5.5s !important;
+    }
+}
+/* =========================================================
+   STORY CAROUSEL — PC ARROWS FIX
+   Laptop design ko touch nahi karta
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    .story-carousel {
+        position: relative !important;
+        overflow: visible !important;
+    }
+
+    .story-images {
+        overflow: visible !important;
+    }
+
+    .story-arrow {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: absolute !important;
+
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+
+        z-index: 99999 !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+        pointer-events: auto !important;
+    }
+
+    .story-prev {
+        left: calc(50% - (580px * var(--desktop-section-scale))) !important;
+        right: auto !important;
+    }
+
+    .story-next {
+        right: calc(50% - (580px * var(--desktop-section-scale))) !important;
+        left: auto !important;
+    }
+}
+/* =========================================================
+   STORY CAROUSEL — LARGE PC ARROWS FINAL FIX
+   Laptop / tablet / phone design unchanged
+========================================================= */
+
+@media (min-width: 1367px) {
+
+    .story-carousel {
+        position: relative !important;
+        overflow: visible !important;
+        isolation: isolate !important;
+    }
+
+    .story-images {
+        overflow: visible !important;
+    }
+
+    .story-arrow,
+    .story-prev,
+    .story-next {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: absolute !important;
+        z-index: 999999 !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+
+    /* LEFT ARROW */
+    .story-prev {
+        left: clamp(
+            20px,
+            calc(50% - (580px * var(--desktop-section-scale))),
+            300px
+        ) !important;
+
+        right: auto !important;
+    }
+
+    /* RIGHT ARROW */
+    .story-next {
+        right: clamp(
+            20px,
+            calc(50% - (580px * var(--desktop-section-scale))),
+            300px
+        ) !important;
+
+        left: auto !important;
+    }
+}
+
+
+
+/* =========================================================
+   FINAL REQUESTED FIXES — appended last to override earlier rules
+   Only contact heading, blue footer height/title, and story arrows.
+========================================================= */
+
+/* PC / laptop: reduce the actual blue footer height.
+   The original min-height: 350px and .home-page 1140px rule
+   were overriding the earlier height settings. */
+/* 
+/* Large PC: override the more-specific .home-page rules too. */
+@media (min-width: 1367px) {
+    .home-page .footer-blue {
+        height: 650px !important;
+        min-height: 650px !important;
+    }
+    .home-page .footer-phone{
+        width: 1050px !important;
+    }
+
+    .home-page .footer-content {
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
+    }
+
+    .home-page .footer-title {
+        font-size: clamp(68px, 10vw, 230px) !important;
+        letter-spacing: -2.5px !important;
+    }
+
+    .contact-title {
+        font-size: clamp(46px, 6.5vw, 72px) !important;
+        letter-spacing: -2px !important;
+    }
+}
+
+/* Center the arrow glyph inside its oval on every screen size. */
+.story-arrow,
+.story-prev,
+.story-next {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+}
+
+.story-prev,
+.story-next {
+    text-indent: 0 !important;
+}
+/* PC Responsive — Contact Page Title */
+@media (min-width: 1367px) {
+    .contact-section .contact-title {
+        font-size: 108px !important;
+        letter-spacing: -2px !important;
+        line-height: 0.9 !important;
+    }
+}
+/* STORY CAROUSEL — REMOVE OVAL, BLACK ARROWS EVERYWHERE */
+.story-arrow,
+.story-prev,
+.story-next {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+/* STORY CAROUSEL ARROWS — ALL SCREEN SIZES */
+.story-arrow,
+.story-prev,
+.story-next {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    width: 65px !important;
+    height: 60px !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+
+    color: #000 !important;
+    font-size: 48px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    z-index: 999 !important;
+    cursor: pointer !important;
+}
+
+/* LAPTOP */
+@media (min-width: 801px) and (max-width: 1400px) {
+    .story-arrow,
+    .story-prev,
+    .story-next {
+        width: 70px !important;
+        height: 65px !important;
+        font-size: 52px !important;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 800px) {
+    .story-arrow,
+    .story-prev,
+    .story-next {
+        width: 20px !important;
+        height: 50px !important;
+        font-size: 18px !important;
+    }
+}
+/* pc */
+@media(min-width: 1367px){
+      .story-arrow,
+    .story-prev,
+    .story-next {
+        width: 90px !important;
+        height: 75px !important;
+        font-size: 122px !important;
+       
+    }
+   
+}
+/* DOUBLE TRIANGLE ARROWS */
+.story-arrow {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    font-size: 0 !important;
+    width: 76px !important;
+    height: 76px !important;
+    z-index: 9999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.double-arrow {
+    display: block;
+    position: relative;
+    width: 48px;
+    height: 48px;
+}
+
+.double-arrow::before,
+.double-arrow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-top: 24px solid transparent;
+    border-bottom: 24px solid transparent;
+}
+
+.double-arrow-left::before {
+    left: 0;
+    border-right: 26px solid #000;
+}
+
+.double-arrow-left::after {
+    left: 20px;
+    border-right: 26px solid #000;
+}
+
+.double-arrow-right::before {
+    right: 0;
+    border-left: 26px solid #000;
+}
+
+.double-arrow-right::after {
+    right: 20px;
+    border-left: 26px solid #000;
+}
+
+/* LAPTOP, PC AND MOBILE VISIBILITY */
+.story-carousel .story-prev {
+    left: -4px !important;
+    right: auto !important;
+}
+
+.story-carousel .story-next {
+    right: 12px !important;
+    left: auto !important;
+}
+
+@media (min-width: 801px) {
+    .story-arrow {
+        width: 80px !important;
+        height: 80px !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .story-arrow {
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .double-arrow {
+        transform: scale(.8);
+    }
+}
+/* FINAL STORY ARROW FIX — DESKTOP */
+.story-carousel {
+    position: relative !important;
+}
+
+.story-carousel .story-prev {
+    position: absolute !important;
+    left: -40px !important;
+    right: auto !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+}
+
+.story-carousel .story-next {
+    position: absolute !important;
+    right: -40px !important;
+    left: auto !important;
+    top: 50% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+}
+
+/* MOBILE — SIZE ONLY, KEEP SIDES */
+@media (max-width: 800px) {
+    .story-carousel .story-prev {
+        left: 3px !important;
+    }
+
+    .story-carousel .story-next {
+        right: 3px !important;
+    }
+
+    .story-carousel .story-prev,
+    .story-carousel .story-next {
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    .story-carousel .double-arrow {
+        transform: scale(0.65) !important;
+    }
+}
+
+
+/* FINAL: DESKTOP ARROWS BESIDE THE CENTER VIDEO */
+@media (min-width: 801px) {
+  .story-carousel { position: relative !important; overflow: visible !important; }
+  .story-carousel > .story-arrow.story-prev {
+    position: absolute !important; left: calc(50% - 470px) !important; right: auto !important;
+    top: 50% !important; bottom: auto !important; transform: translateY(-50%) !important; z-index: 99999 !important;
+  }
+  .story-carousel > .story-arrow.story-next {
+    position: absolute !important; right: calc(50% - 270px) !important; left: auto !important;
+    top: 50% !important; bottom: auto !important; transform: translateY(-50%) !important; z-index: 99999 !important;
+  }
+}
+@media (max-width: 800px) {
+  .story-carousel > .story-arrow.story-prev { left: 3px !important; right: auto !important; }
+  .story-carousel > .story-arrow.story-next { right: 3px !important; left: auto !important; }
+  .story-carousel > .story-arrow.story-prev, .story-carousel > .story-arrow.story-next { width: 34px !important; height: 34px !important; }
+}
+
+
+/* =========================================================
+   STORY CAROUSEL — FINAL DESKTOP POSITION FIX (V2)
+   Keep mobile/tablet rules untouched. The carousel's paint
+   containment is disabled so arrows can sit outside the card.
+========================================================= */
+@media screen and (min-width: 801px) {
+    .story-carousel {
+        position: relative !important;
+        overflow: visible !important;
+        contain: layout !important;
+    }
+
+    .story-carousel > .story-arrow.story-prev,
+    .story-carousel > .story-arrow.story-next {
+        position: absolute !important;
+        top: 50% !important;
+        bottom: auto !important;
+        width: 58px !important;
+        height: 72px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        transform: translateY(-50%) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        z-index: 2147483000 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* .story-image is 370px wide before desktop scaling.
+       185px reaches the center card edge; 72px adds a 14px
+       gap plus the 58px arrow button outside that edge. */
+    .story-carousel > .story-arrow.story-prev {
+        left: calc(10% - (185px * var(--desktop-section-scale, 1)) - 72px) !important;
+        right: auto !important;
+    }
+
+    .story-carousel > .story-arrow.story-next {
+        right: calc(10% - (185px * var(--desktop-section-scale, 1)) - 72px) !important;
+        left: auto !important;
+    }
+}
