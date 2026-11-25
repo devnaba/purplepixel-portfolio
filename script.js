@@ -422,12 +422,24 @@ updateNavbar();
         bigMessage
     ) {
 
-        const originalText = [
-            "Pixels don't just make",
-            "THINGS LOOK GOOD.",
-            "WE FIGURE OUT WHAT",
-            "THEY NEED TO SAY."
-        ];
+     const originalText = window.innerWidth <= 600
+    ? [
+        "PIXELS",
+        "DON'T JUST",
+        "MAKE",
+        "THINGS LOOK",
+        "GOOD.",
+        "WE FIGURE",
+        "OUT WHAT",
+        "THEY NEED",
+        "TO SAY."
+    ]
+    : [
+        "Pixels don't just make",
+        "THINGS LOOK GOOD.",
+        "WE FIGURE OUT WHAT",
+        "THEY NEED TO SAY."
+    ];
 
         bigMessage.innerHTML = "";
 
