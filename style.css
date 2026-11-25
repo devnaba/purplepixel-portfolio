@@ -4528,23 +4528,27 @@ img, video {
     }
 
 }
-/* THIRD PAGE — SAME LOOK ON ALL MOBILE PHONES */
+/* THIRD PAGE — MOBILE TEXT SIZE & LINE WRAPPING */
 
 @media screen and (max-width: 600px) {
 
     .big-message {
         font-family: "Anton", sans-serif !important;
         font-weight: 400 !important;
-        font-size: clamp(42px, 11.8vw, 54px) !important;
+        font-size: clamp(54px, 15vw, 62px) !important;
         line-height: 1.03 !important;
         letter-spacing: -0.5px !important;
-        -webkit-text-stroke: 0.3px currentColor;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .big-message .message-line {
         width: 100% !important;
-        max-width: 340px !important;
-        font-family: "Anton", sans-serif !important;
+        max-width: 250px !important;
+    }
+
+    .big-message .message-line:nth-child(1) {
+        max-width: 250px !important;
     }
 
 }
