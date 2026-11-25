@@ -4523,8 +4523,8 @@ img, video {
 
     .big-message {
         font-family: "Anton", sans-serif !important;
-        font-weight: 800 !important;
-        font-size: clamp(48px, 13vw, 58px) !important;
+        font-weight: 900 !important;
+        font-size: clamp(58px, 13vw, 65px) !important;
         line-height: 1.03 !important;
         letter-spacing: -0.5px !important;
         width: 100% !important;
