@@ -4516,3 +4516,14 @@ img, video {
         filter: none !important;
     }
 }
+/* THIRD PAGE — MOBILE TEXT BOLD */
+
+@media (max-width: 768px) {
+
+    .big-message {
+        font-family: system-ui, sans-serif !important;
+        font-weight: 900 !important;
+        -webkit-text-stroke: 0.7px currentColor;
+    }
+
+}
