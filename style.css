@@ -4528,15 +4528,15 @@ img, video {
     }
 
 }
-/* THIRD PAGE — MOBILE TEXT SIZE & LINE WRAPPING */
+/* THIRD PAGE — MOBILE FINAL TEXT */
 
 @media screen and (max-width: 600px) {
 
     .big-message {
         font-family: "Anton", sans-serif !important;
         font-weight: 400 !important;
-        font-size: clamp(54px, 15vw, 62px) !important;
-        line-height: 2.03 !important;
+        font-size: clamp(58px, 15vw, 64px) !important;
+        line-height: 1.03 !important;
         letter-spacing: -0.5px !important;
         width: 100% !important;
         max-width: 100% !important;
